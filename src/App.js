@@ -4,6 +4,9 @@ import learn from './shared/img/svg/learn.svg';
 import poop from './shared/img/svg/poop.svg';
 import gotyou from './shared/img/svg/gotyou.svg';
 import noads from './shared/img/svg/noads.svg';
+import screenApp from './shared/img/svg/screenApp.svg';
+import mobileAppChat from './shared/img/svg/mobileAppChat.svg';
+import VCSdisplay from './shared/img/svg/VCSdisplay.svg';
 import './App.css';
 import React from "react";
 
@@ -64,28 +67,34 @@ class App extends React.Component {
         <div className="advantagesSection">
           <div className="advantageUnit">
             <div className="advantagePart">
-              <div className="textContainer">
+              <div className="textContainerLeft">
                 Continuez d'apprendre peu importe où vous êtes avec l'application mobile OpenDoc !
               </div>
             </div>
             <div className="advantagePart">
-
+              <img className="screenAppStyle" src={screenApp} alt="Wave"/>
             </div>
           </div>
           <div className="advantageUnit">
             <div className="advantagePart">
-
+              <img className="mobileAppStyle" src={mobileAppChat} alt="Wave"/>
             </div>
             <div className="advantagePart">
+              <div className="textContainerRight">
+                <p>Partagez avec d'autres OpenDockeurs autour d'un cours grâce à une messagerie instantanée.</p>
 
+                <p>Suivez vos OpenDockeurs favoris et soyez avertis lorsqu'un nouveau cours est disponible !</p>
+              </div>
             </div>
           </div>
           <div className="advantageUnit">
             <div className="advantagePart">
-
+              <div className="textContainerLeft">
+                Continuez d'apprendre peu importe où vous êtes avec l'application mobile OpenDoc !
+              </div>
             </div>
             <div className="advantagePart">
-
+              <img className="screenAppStyle" src={VCSdisplay} alt="Wave"/>
             </div>
           </div>
         </div>

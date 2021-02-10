@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="852" height="557" viewBox="0 0 852 557">
+    <defs>
+        <filter id="Rectangle_68" x="0" y="0" width="852" height="557" filterUnits="userSpaceOnUse">
+            <feOffset dy="3" input="SourceAlpha"/>
+            <feGaussianBlur stdDeviation="3" result="blur"/>
+            <feFlood flood-opacity="0.302"/>
+            <feComposite operator="in" in2="blur"/>
+            <feComposite in="SourceGraphic"/>
+        </filter>
+    </defs>
+    <g id="Groupe_36" data-name="Groupe 36" transform="translate(-1275 -2725)">
+        <g transform="matrix(1, 0, 0, 1, 1275, 2725)" filter="url(#Rectangle_68)">
+            <rect id="Rectangle_68-2" data-name="Rectangle 68" width="834" height="539" rx="39" transform="translate(9 6)" fill="#fff"/>
+        </g>
+        <path id="Polygone_1" data-name="Polygone 1" d="M14.412,4.415a3,3,0,0,1,5.176,0L31.352,24.483A3,3,0,0,1,28.764,29H5.236a3,3,0,0,1-2.588-4.517Z" transform="translate(1317.527 2735.443) rotate(30)" fill="#43a4d9"/>
+        <path id="Polygone_2" data-name="Polygone 2" d="M14.412,4.415a3,3,0,0,1,5.176,0L31.352,24.483A3,3,0,0,1,28.764,29H5.236a3,3,0,0,1-2.588-4.517Z" transform="translate(1379.472 2786.557) rotate(-150)" fill="#43a4d9"/>
+        <rect id="Rectangle_69" data-name="Rectangle 69" width="552" height="34" rx="7" transform="translate(1420 2744)" fill="#43a4d9"/>
+        <g id="loupe" transform="translate(1945.142 2752.133)">
+            <g id="Groupe_19" data-name="Groupe 19" transform="translate(0 0.003)">
+                <path id="Tracé_12" data-name="Tracé 12" d="M16.658,15.667l-4.8-4.8a6.688,6.688,0,1,0-.994.994l4.8,4.8a.7.7,0,1,0,.994-.994ZM6.675,11.948a5.27,5.27,0,1,1,5.27-5.27A5.275,5.275,0,0,1,6.675,11.948Z" transform="translate(0 -0.003)" fill="#fff"/>
+            </g>
+        </g>
+        <text id="https:_opendocs.sopernetwork.com" data-name="https://opendocs.sopernetwork.com" transform="translate(1459 2751)" fill="#fff" font-size="15" font-family="SegoeUI, Segoe UI"><tspan x="0" y="16">https://opendocs.sopernetwork.com</tspan></text>
+        <g id="https-symbol" transform="translate(1371.782 2753.761)">
+            <g id="https" transform="translate(63.75)">
+                <path id="Tracé_13" data-name="Tracé 13" d="M72.909,4.58h-.654V3.271a3.271,3.271,0,0,0-6.542,0V4.58h-.654A1.312,1.312,0,0,0,63.75,5.888V12.43a1.312,1.312,0,0,0,1.308,1.308h7.851a1.312,1.312,0,0,0,1.308-1.308V5.888A1.312,1.312,0,0,0,72.909,4.58Zm-3.925,5.888a1.308,1.308,0,1,1,1.308-1.308A1.312,1.312,0,0,1,68.984,10.468ZM71.012,4.58H66.956V3.271a2.028,2.028,0,1,1,4.056,0Z" transform="translate(-63.75 0)" fill="#fff"/>
+            </g>
+        </g>
+        <rect id="Rectangle_80" data-name="Rectangle 80" width="92" height="30" rx="15" transform="translate(1434 2826)" fill="#bf4d0f"/>
+        <rect id="Rectangle_82" data-name="Rectangle 82" width="107" height="30" rx="15" transform="translate(1526 2826)" fill="#4cd137"/>
+        <rect id="Rectangle_83" data-name="Rectangle 83" width="69" height="30" rx="15" transform="translate(1804 2826)" fill="#bf4d0f"/>
+        <rect id="Rectangle_84" data-name="Rectangle 84" width="118" height="30" rx="15" transform="translate(1876 2826)" fill="#4cd137"/>
+        <rect id="Rectangle_85" data-name="Rectangle 85" width="440" height="30" rx="15" transform="translate(1323 2888)" fill="#bf4d0f"/>
+        <rect id="Rectangle_86" data-name="Rectangle 86" width="670" height="30" rx="15" transform="translate(1323 2918)" fill="#4cd137"/>
+        <text id="Ceci_est_le_premier_deuxième_cours_il_est_très_inutile_formidable_Notre_devise_est_:_N_apprenez_plus_jamais_Notre_devise_est_:_Prenez_plus_que_jamais_le_temps_d_apprendre_" data-name="Ceci est le premier deuxième cours, il est très inutile formidable
+
+Notre devise est : N&apos;apprenez plus jamais
+Notre devise est : Prenez plus que jamais le temps d&apos;apprendre
+
+" transform="translate(1325 2822)" fill="#2f3640" font-size="24" font-family="SegoeUI, Segoe UI"><tspan x="0" y="26">Ceci est le </tspan><tspan y="26" fill="#fff">premier</tspan><tspan y="26"> </tspan><tspan y="26" fill="#fff">deuxième</tspan><tspan y="26" xml:space="preserve"> cours, il est très </tspan><tspan y="26" fill="#fff">inutile</tspan><tspan y="26"> </tspan><tspan y="26" fill="#fff">formidable</tspan><tspan x="0" y="58"></tspan><tspan fill="#fff"><tspan x="0" y="90">Notre devise est : N&apos;apprenez plus jamais</tspan><tspan x="0" y="122">Notre devise est : Prenez plus que jamais le temps d&apos;apprendre</tspan></tspan><tspan x="0" y="154"></tspan><tspan x="0" y="186"></tspan></text>
+    </g>
+</svg>
