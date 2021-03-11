@@ -1,0 +1,111 @@
+/* ------------ [REGISTER] ------------ */
+
+.LoginPage-root {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.LoginPage-body {
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #008ED9, #FFF);
+}
+
+.landingPage-Form {
+    max-width: 700px;
+    width: 30%;
+    background-color: #FFF;
+    padding: 25px 30px;
+    margin-left: 5%;
+    border-radius: 5px;
+}
+
+.landingPage-Form .LoginPage-HeadTitleSignUp {
+    font-size: 25px;
+    font-weight: 500;
+    position: relative;
+}
+
+.landingPage-Form .LoginPage-HeadTitleSignUp::before {
+    content: '';
+    left: 0;
+    bottom: 0;
+    height: 3px;
+    width: 30px;
+    background: linear-gradient(135deg, #008ED9, #f0f0f0);
+    position: absolute;
+}
+
+.landingPage-Form .LoginPage-userDetail {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 20px 0 12px 0;
+}
+
+.landingPage-Form .LoginPage-userDetail .loginPage-inputBox {
+    margin-bottom: 15px;
+    width: calc(100% / 2 - 20px);
+}
+
+.LoginPage-userDetail .loginPage-inputBox label{
+    font-weight: 500;
+    margin-bottom: 5px;
+}
+
+.LoginPage-userDetail .loginPage-inputBox input{
+    height: 25px;
+    width: 100%;
+    outline: none;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    padding-left: 15px;
+    font-size: 16px;
+    border-bottom-width: 2px;
+    transition: all 0.3s ease;
+}
+
+.LoginPage-userDetail .loginPage-inputBox input:focus,
+.LoginPage-userDetail .loginPage-inputBox input:valid{
+    border-color: #008ED9;
+}
+
+.landingPage-Form .LoginPage-btnRegister{
+    height: 45px;
+    margin: 45px 0;
+}
+
+.landingPage-Form .LoginPage-btnRegister button{
+    height: 100%;
+    width: 100%;
+    outline: none;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    color: #fff;
+    background: linear-gradient(135deg, #008ED9, #c782c7);
+}
+
+.landingPage-Form .LoginPage-btnRegister button:hover{
+    background: linear-gradient(-135deg, #008ED9, #c782c7);
+}
+
+
+@media (max-width: 584px){
+    .landingPage-Form{
+        max-width: 100%;
+    }
+    .landingPage-Form .LoginPage-userDetail .loginPage-inputBox {
+        margin-bottom: 15px;
+        width: 100%;
+    }
+    .landingPage-Form .LoginPage-userDetail {
+        max-height: 300px;
+    }
+}
+

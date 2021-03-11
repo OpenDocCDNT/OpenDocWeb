@@ -2,6 +2,7 @@ import React from 'react';
 import {Link, useParams, useHistory} from "react-router-dom";
 import {fetchCreatorPost} from "../../../utils/fetchCreator";
 import './Login.css'
+import logo from './../../../img/svg/logo.svg';
 
 function Login(){
   const {action} = useParams();
@@ -71,21 +72,36 @@ class SignUp extends React.Component {
   render() {
     return (
       <div className = "LoginPage-root">
-        <h1 className="LoginPage-HeadTitleSignUp">Register</h1><br/>
-        <label htmlFor="name">Pseudo</label>
-        <input id="name" type="text"/><br/>
-        <label htmlFor="email">Email</label>
-        <input id="email" type="email"/><br/>
-        <label htmlFor="password">Password</label>
-        <input id="password" type="password"/><br/><br/>
-        <button onClick={this.handleRegister} >INSCRIPTION</button>
-        {
-          this.state.registered ?
-            <p>Vous serez rediriger vers la page de connexion dans 3s, si cela ne fonctionne pas cliquez ici : <Link to="../login/signin"> Connectez-vous !</Link></p>
-            :
-            <p>Vous avez dèjà un compte ? <Link to="../login/signin"> Connectez-vous !</Link></p>
-        }
-        <span id="errorSpan"/>
+        <div className ="LoginPage-body">
+          <img className="landingPage-titleLogo" src={logo} alt="OpenDoc"/>
+            <div className="landingPage-Form">
+              <h1 className="LoginPage-HeadTitleSignUp">REGISTER</h1>
+                <div className="LoginPage-userDetail">
+                  <div className="loginPage-inputBox">
+                    <label htmlFor="name">Pseudo</label>
+                    <input id="name" type="text"/>
+                  </div>
+                  <div className="loginPage-inputBox">
+                    <label htmlFor="email">Email</label>
+                    <input id="email" type="email"/>
+                  </div>
+                  <div className="loginPage-inputBox">
+                    <label htmlFor="password">Password</label>
+                    <input id="password" type="password"/>
+                  </div>
+                </div>
+                <div className="LoginPage-btnRegister">
+                    <button onClick={this.handleRegister} >INSCRIPTION</button>
+                  </div>
+                {
+                  this.state.registered ?
+                    <p>Vous serez rediriger vers la page de connexion dans 3s, si cela ne fonctionne pas cliquez ici : <Link to="../login/signin"> Connectez-vous !</Link></p>
+                    :
+                    <p>Vous avez dèjà un compte ? <Link to="../login/signin"> Connectez-vous !</Link></p>
+                }
+                  <span id="errorSpan"/>
+            </div>
+        </div>
       </div>
     )
   }
@@ -108,7 +124,6 @@ class SignIn extends React.Component {
       return errorSpan.innerHTML += "Veuillez entrer une adresse mail valide"
     }
 
-
     let params = {
       email: emailValue,
       password: passValue
@@ -116,18 +131,25 @@ class SignIn extends React.Component {
     fetchCreatorPost('http://127.0.0.1:8080/api/auth/login', params)
       .then(response => {
         if (response === undefined) {
-          //ERREUR
+          return errorSpan.innerHTML=("Erreur 500 !");
         }
         if (response.statusCode !== 200) {
-          //ERREUR
+          return errorSpan.innerHTML=("Votre mot de passe ou votre email est incorrect ! Veuillez réessayé ");
         }
         //SUCCESS
         let responseBody = response.responseBody
         localStorage.setItem("token", responseBody.token)
-        localStorage.getItem("token")
+        localStorage.getItem("token");
+        this.setState({
+        connected : true 
+        })
+        errorSpan.innerHTML = ""
+        setTimeout(() => {
+          this.props.history.push("../")
+        }, 1000)
       })
       .catch(() => {
-        //ERREUR
+        return errorSpan.innerHTML = "Erreur 500 !"
       })
   }
 
