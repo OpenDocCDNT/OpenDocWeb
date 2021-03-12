@@ -8,6 +8,7 @@ import screenApp from './../../../img/svg/screenApp.svg';
 import mobileAppChat from './../../../img/svg/mobileAppChat.svg';
 import VCSdisplay from './../../../img/svg/VCSdisplay.svg';
 import './LandingPage.css';
+import '../../../utils/commonStyle.css';
 import React from "react";
 import {Link, useHistory} from "react-router-dom";
 

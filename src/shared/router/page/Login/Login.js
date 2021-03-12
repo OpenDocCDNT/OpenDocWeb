@@ -155,7 +155,7 @@ class SignIn extends React.Component {
         })
         errorSpan.innerHTML = ""
         setTimeout(() => {
-          this.props.history.push("../dashboard")
+          this.props.history.push("../dashboard/dashboardHome")
         }, 3000)
       })
       .catch(() => {
@@ -196,6 +196,7 @@ class SignIn extends React.Component {
     )
   }
 }
+
 /*
 <div>
         <h1>Login</h1>
