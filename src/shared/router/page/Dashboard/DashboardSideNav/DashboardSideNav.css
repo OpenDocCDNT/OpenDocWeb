@@ -1,0 +1,14 @@
+.dashboardSideNav-root {
+    position: relative;
+    height: 100vh;
+    background: #008ED9;
+    transition: width ease-in-out .3s;
+}
+
+.dashboardSideNav-widthModifier {
+    position: relative;
+    font-size: 30px;
+    font-family: Impact, sans-serif;
+    color: white;
+    text-align: right;
+}

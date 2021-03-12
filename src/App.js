@@ -11,7 +11,7 @@ class App extends React.Component {
       <Router>
         <Switch>
           <Route exact path='/' component={LandingPage} />
-          <Route exact path='/dashboard' component={Dashboard} />
+          <Route exact path='/dashboard/:action' component={Dashboard} />
           <Route exact path='/login/:action' component={Login} />
         </Switch>
       </Router>

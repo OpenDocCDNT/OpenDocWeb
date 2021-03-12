@@ -1,11 +1,33 @@
 import './Dashboard.css';
 import React from "react";
-import {useHistory, useParams} from "react-router-dom";
+import { useParams, useHistory } from "react-router-dom";
+import DashboardSideNav from "./DashboardSideNav/DashboardSideNav";
+import DashboardCourse from "./DashboardCourse/DashboardCourse";
+import DashboardCreateCourse from "./DashboardCreateCourse/DashboardCreateCourse";
+import DashboardExplore from "./DashboardExplore/DashboardExplore";
+import DashboardManageCourse from "./DashboardManageCourse/DashboardManageCourse";
+import DashboardMyLearnings from "./DashboardMyLearnings/DashboardMyLearnings";
+import DashboardProfile from "./DashboardProfile/DashboardProfile";
+import DashboardHome from "./DashboardHome/DashboardHome";
 
-function Dashboard(){
-  const {action} = useParams();
+function Dashboard() {
+  const { action } = useParams();
   const history = useHistory();
-  return <DashboardComponent hisory={history}/>
+  let dashboardPage = <DashboardHome/>
+  if (action === "course") {
+    dashboardPage = <DashboardCourse/>
+  } else if (action === "create") {
+    dashboardPage = <DashboardCreateCourse/>
+  } else if (action === "explore") {
+    dashboardPage = <DashboardExplore/>
+  } else if (action === "manage") {
+    dashboardPage = <DashboardManageCourse/>
+  } else if (action === "achievement") {
+    dashboardPage = <DashboardMyLearnings/>
+  } else if (action === "profile") {
+    dashboardPage = <DashboardProfile/>
+  }
+  return <DashboardComponent history={history} dashboardPage={dashboardPage}/>
 }
 
 class DashboardComponent extends React.Component {
@@ -18,25 +40,20 @@ class DashboardComponent extends React.Component {
 
   componentDidMount() {
     if (!localStorage.getItem("token")) {
-      setTimeout(() => {
-        this.props.hisory.push('/')
-      }, 3000)
+      this.props.history.push('/')
     } else {
       this.setState({
-        logged: true
+        logged: true,
       })
     }
   }
 
   render() {
+
     return (
       <div className="dashboardPage-root">
-        {
-          this.state.logged ?
-            <span>Seems like you're logged</span>
-            :
-            <span>Not logged :( Redirect to home soon</span>
-        }
+        <DashboardSideNav/>
+        {this.props.dashboardPage}
       </div>
     )
   }

@@ -9,19 +9,16 @@ import mobileAppChat from './../../../img/svg/mobileAppChat.svg';
 import VCSdisplay from './../../../img/svg/VCSdisplay.svg';
 import './LandingPage.css';
 import React from "react";
-import {Link} from "react-router-dom";
+import {Link, useHistory} from "react-router-dom";
 
-function PromoCard(props) {
-  return (
-    <div className="landingPage-promoCard-cardContainer">
-      <div className="landingPage-promoCard-cardTitle">{props.title}</div>
-      <div className="landingPage-promoCard-cardText">{props.cardText}</div>
-      <img className="landingPage-promoCard-cardImg" src={props.svgSrc} alt="Wave"/>
-    </div>
-  )
+
+
+function LandingPage() {
+  const history = useHistory();
+  return <LandingPageComponent history={history}/>
 }
 
-class LandingPage extends React.Component {
+class LandingPageComponent extends React.Component {
   constructor(props) {
     super(props);
     this.handleDisconnect = this.handleDisconnect.bind(this);
@@ -57,6 +54,7 @@ class LandingPage extends React.Component {
       this.setState({
         isLogged: true
       })
+      this.props.history.push('/dashboard')
     }
   }
 
@@ -129,6 +127,16 @@ class LandingPage extends React.Component {
       </div>
     )
   }
+}
+
+function PromoCard(props) {
+  return (
+    <div className="landingPage-promoCard-cardContainer">
+      <div className="landingPage-promoCard-cardTitle">{props.title}</div>
+      <div className="landingPage-promoCard-cardText">{props.cardText}</div>
+      <img className="landingPage-promoCard-cardImg" src={props.svgSrc} alt="Wave"/>
+    </div>
+  )
 }
 
 export default LandingPage;
