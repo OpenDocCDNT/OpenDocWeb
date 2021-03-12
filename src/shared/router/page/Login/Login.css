@@ -29,6 +29,16 @@
     position: relative;
 }
 
+.landingPage-Form .LoginPage-HeadTitleSignUp::before {
+    content: '';
+    left: 0;
+    bottom: 0;
+    height: 3px;
+    width: 30px;
+    background: linear-gradient(135deg, #008ED9, #ffffff);
+    position: absolute;
+}
+
 .landingPage-Form .LoginPage-userDetail {
     display: flex;
     flex-wrap: wrap;
@@ -79,6 +89,7 @@
     letter-spacing: 1px;
     color: #fff;
     background: linear-gradient(135deg, #008ED9, #c782c7);
+    transition: background-position ease-in-out 1s;
 }
 
 .landingPage-Form .LoginPage-btnRegister button:hover{
