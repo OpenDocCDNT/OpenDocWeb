@@ -48,13 +48,13 @@ class DashboardSideNavComp extends React.Component {
     return (
       <div id="dashboardSideNavId" className="dashboardSideNav-root">
         <div className="dashboardSideNav-widthModifier" onClick={this.handleRetractMenu}>◄</div>
-        <Link to="./home">home</Link><br/>
-        <Link to="./course">course</Link><br/>
-        <Link to="./create">create</Link><br/>
-        <Link to="./explore">explore</Link><br/>
-        <Link to="./manage">manage</Link><br/>
-        <Link to="./achievement">achievement</Link><br/>
-        <Link to="./profile">profile</Link><br/>
+        <Link to="/dashboard/home">home</Link><br/>
+        <Link to="/dashboard/course">course</Link><br/>
+        <Link to="/dashboard/create">create</Link><br/>
+        <Link to="/dashboard/explore">explore</Link><br/>
+        <Link to="/dashboard/manage">manage</Link><br/>
+        <Link to="/dashboard/achievement">achievement</Link><br/>
+        <Link to="/dashboard/profile">profile</Link><br/>
       </div>
     )
   }
