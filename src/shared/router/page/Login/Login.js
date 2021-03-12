@@ -102,7 +102,7 @@ class SignUp extends React.Component {
                   this.state.registered ?
                     <p>Vous serez rediriger vers la page de connexion dans 3s, si cela ne fonctionne pas cliquez ici : <Link to="../login/signin">Connectez-vous !</Link></p>
                     :
-                    <p>Vous avez dèjà un compte ? <Link to="../login/signin"> Connectez-vous !</Link></p>
+                    <p className="LoginPage-text">Vous avez dèjà un compte ? <Link to="../login/signin"> Connectez-vous !</Link></p>
                 }
                   <span id="errorSpan"/>
             </div>
@@ -155,7 +155,7 @@ class SignIn extends React.Component {
         })
         errorSpan.innerHTML = ""
         setTimeout(() => {
-          this.props.history.push("../dashboard")
+          this.props.history.push("../dashboard/dashboardHome")
         }, 3000)
       })
       .catch(() => {
@@ -196,6 +196,7 @@ class SignIn extends React.Component {
     )
   }
 }
+
 /*
 <div>
         <h1>Login</h1>

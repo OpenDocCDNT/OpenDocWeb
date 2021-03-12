@@ -75,7 +75,7 @@
 
 .landingPage-Form .LoginPage-btnRegister{
     height: 45px;
-    margin: 45px 0;
+    margin: 25px 0;
 }
 
 .landingPage-Form .LoginPage-btnRegister button{
@@ -110,3 +110,9 @@
     }
 }
 
+
+.LoginPage-text{
+    text-align: center;
+    font-size: 12px;
+    color: gray;
+}
