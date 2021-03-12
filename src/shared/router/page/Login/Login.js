@@ -18,9 +18,14 @@ class SignUp extends React.Component {
   constructor(props) {
     super(props);
     this.handleRegister = this.handleRegister.bind(this);
+    this.goBackHome = this.goBackHome.bind(this);
     this.state = {
       registered : false
     }
+  }
+
+  goBackHome() {
+    this.props.history.push('../');
   }
 
   handleRegister() {
@@ -73,9 +78,9 @@ class SignUp extends React.Component {
     return (
       <div className = "LoginPage-root">
         <div className ="LoginPage-body">
-          <img className="landingPage-titleLogo" src={logo} alt="OpenDoc"/>
+            <img className="landingPage-titleLogo" src={logo} alt="OpenDoc" onClick={this.goBackHome}/>
             <div className="landingPage-Form">
-              <h1 className="LoginPage-HeadTitleSignUp">REGISTER</h1>
+              <h1 className="LoginPage-HeadTitleSignUp">INSCRIPTION</h1>
                 <div className="LoginPage-userDetail">
                   <div className="loginPage-inputBox">
                     <label htmlFor="name">Pseudo</label>
@@ -95,7 +100,7 @@ class SignUp extends React.Component {
                   </div>
                 {
                   this.state.registered ?
-                    <p>Vous serez rediriger vers la page de connexion dans 3s, si cela ne fonctionne pas cliquez ici : <Link to="../login/signin"> Connectez-vous !</Link></p>
+                    <p>Vous serez rediriger vers la page de connexion dans 3s, si cela ne fonctionne pas cliquez ici : <Link to="../login/signin">Connectez-vous !</Link></p>
                     :
                     <p>Vous avez dèjà un compte ? <Link to="../login/signin"> Connectez-vous !</Link></p>
                 }
@@ -111,9 +116,15 @@ class SignIn extends React.Component {
   constructor(props) {
     super(props);
     this.handleConnect = this.handleConnect.bind(this);
-
+    this.goBackHome = this.goBackHome.bind(this);
+    this.state = {
+      logged : false
+    }
   }
 
+  goBackHome() {
+    this.props.history.push('../');
+  }
 
   handleConnect() {
 
@@ -139,14 +150,13 @@ class SignIn extends React.Component {
         //SUCCESS
         let responseBody = response.responseBody
         localStorage.setItem("token", responseBody.token)
-        localStorage.getItem("token");
         this.setState({
-        connected : true 
+          logged : true
         })
         errorSpan.innerHTML = ""
         setTimeout(() => {
-          this.props.history.push("../")
-        }, 1000)
+          this.props.history.push("../dashboard")
+        }, 3000)
       })
       .catch(() => {
         return errorSpan.innerHTML = "Erreur 500 !"
@@ -155,15 +165,45 @@ class SignIn extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className = "LoginPage-root">
+        <div className ="LoginPage-body">
+          <img className="landingPage-titleLogo" src={logo} alt="OpenDoc"/>
+          <div className="landingPage-Form">
+            <h1 className="LoginPage-HeadTitleSignUp">CONNEXION</h1>
+            <div className="LoginPage-userDetail">
+              <div className="loginPage-inputBox">
+                <label htmlFor="email">Email</label>
+                <input id="email" type="email"/>
+              </div>
+              <div className="loginPage-inputBox">
+                <label htmlFor="password">Password</label>
+                <input id="password" type="password"/>
+              </div>
+            </div>
+            <div className="LoginPage-btnRegister">
+              <button onClick={this.handleConnect} >SE CONNECTER</button>
+            </div>
+            {
+              this.state.logged ?
+                <p>Vous serez rediriger vers votre tableau de bord dans 3s, si cela ne fonctionne pas cliquez ici : <Link to="../dashboard">Tableau de bord</Link></p>
+                :
+                <p>Vous n'avez pas de compte ? <Link to="../login/signup">Inscrivez-vous !</Link></p>
+            }
+            <span id="errorSpan"/>
+          </div>
+        </div>
+      </div>
+    )
+  }
+}
+/*
+<div>
         <h1>Login</h1>
         <input id="email" type="email"/>
         <input id="password" type="password"/>
         <button onClick={this.handleConnect} >SUBMIT</button>
         <span id="errorSpan"/>
       </div>
-    )
-  }
-}
+ */
 
 export default Login;

@@ -24,7 +24,9 @@ function PromoCard(props) {
 class LandingPage extends React.Component {
   constructor(props) {
     super(props);
+    this.handleDisconnect = this.handleDisconnect.bind(this);
     this.state = {
+      isLogged : false,
       promoCards: [
         {
           svgSrc: learn,
@@ -50,13 +52,35 @@ class LandingPage extends React.Component {
     }
   }
 
+  componentDidMount() {
+    if (localStorage.getItem("token")) {
+      this.setState({
+        isLogged: true
+      })
+    }
+  }
+
+  handleDisconnect() {
+    localStorage.removeItem("token");
+    this.setState({
+      isLogged: false
+    })
+  }
+
 
   render() {
     return (
 
       <div className="landingPage-root">
         <div className="landingPage-headTitle">
-          <span className="landingPage-loginSignup"><Link to="login/signin">LOGIN</Link> | <Link to="login/signup">REGISTER</Link></span>
+          <span className="landingPage-loginSignup">
+            {
+              this.state.isLogged ?
+                <span onClick={this.handleDisconnect}>SE DECONNECTER</span>
+                :
+                <div><Link to="login/signin">LOGIN</Link> | <Link to="login/signup">REGISTER</Link></div>
+            }
+          </span>
           <img className="landingPage-titleLogo" src={logo} alt="OpenDoc"/>
         </div>
         <img className="landingPage-waveUnrotated" src={wave} alt="Wave"/>
