@@ -54,20 +54,18 @@ class DashboardSideNavComp extends React.Component {
     return (
       <div id="dashboardSideNavId" className="dashboardSideNav-root">
         <div className="dashboardSideNav-widthModifier" onClick={this.handleRetractMenu}>◄</div>
-         
-        <Link to="./home">
+        <Link to="/">
           <img className="dashboardSideNav-titleLogo-Nav" src={logo} alt="OpenDoc"/>
         </Link>
         <br/><br/>
         <div className="dashboardSideNav-tabs">
-        <Link to="./course" className="dashboardSideNav-tabs-element">Liste des cours</Link><br/>
-        <Link to="./create" className="dashboardSideNav-tabs-element">Créer un cours</Link><br/>
-        <Link to="./explore" className="dashboardSideNav-tabs-element">Explore ?</Link><br/>
-        <Link to="./manage" className="dashboardSideNav-tabs-element">Gérer ses modules (gérer ses cours)</Link><br/>
-        <Link to="./achievement" className="dashboardSideNav-tabs-element">Achievement? (Ma progression ?)</Link><br/>
-        <Link to="./profile" className="dashboardSideNav-tabs-element">Mon compte</Link><br/>
+        <Link to="/dashboard/course" className="dashboardSideNav-tabs-element">Liste des cours</Link><br/>
+        <Link to="/dashboard/create" className="dashboardSideNav-tabs-element">Créer un cours</Link><br/>
+        <Link to="/dashboard/explore" className="dashboardSideNav-tabs-element">Explore ?</Link><br/>
+        <Link to="/dashboard/manage" className="dashboardSideNav-tabs-element">Gérer ses modules (gérer ses cours)</Link><br/>
+        <Link to="/dashboard/achievement" className="dashboardSideNav-tabs-element">Achievement? (Ma progression ?)</Link><br/>
+        <Link to="/dashboard/profile" className="dashboardSideNav-tabs-element">Mon compte</Link><br/>
         </div>
-
       </div>
     )
   }
