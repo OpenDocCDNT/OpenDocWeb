@@ -29,16 +29,6 @@
     position: relative;
 }
 
-.landingPage-Form .LoginPage-HeadTitleSignUp::before {
-    content: '';
-    left: 0;
-    bottom: 0;
-    height: 3px;
-    width: 30px;
-    background: linear-gradient(135deg, #008ED9, #f0f0f0);
-    position: absolute;
-}
-
 .landingPage-Form .LoginPage-userDetail {
     display: flex;
     flex-wrap: wrap;
@@ -75,7 +65,7 @@
 
 .landingPage-Form .LoginPage-btnRegister{
     height: 45px;
-    margin: 45px 0;
+    margin: 25px 0;
 }
 
 .landingPage-Form .LoginPage-btnRegister button{
@@ -109,3 +99,9 @@
     }
 }
 
+
+.LoginPage-text{
+    text-align: center;
+    font-size: 12px;
+    color: gray;
+}

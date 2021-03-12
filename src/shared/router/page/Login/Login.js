@@ -95,9 +95,9 @@ class SignUp extends React.Component {
                   </div>
                 {
                   this.state.registered ?
-                    <p>Vous serez rediriger vers la page de connexion dans 3s, si cela ne fonctionne pas cliquez ici : <Link to="../login/signin"> Connectez-vous !</Link></p>
+                    <p className="LoginPage-text">Vous serez rediriger vers la page de connexion dans 3s, si cela ne fonctionne pas cliquez ici : <Link to="../login/signin"> Connectez-vous !</Link></p>
                     :
-                    <p>Vous avez dèjà un compte ? <Link to="../login/signin"> Connectez-vous !</Link></p>
+                    <p className="LoginPage-text">Vous avez dèjà un compte ? <Link to="../login/signin"> Connectez-vous !</Link></p>
                 }
                   <span id="errorSpan"/>
             </div>
