@@ -9,6 +9,7 @@ import DashboardManageCourse from "./DashboardManageCourse/DashboardManageCourse
 import DashboardMyLearnings from "./DashboardMyLearnings/DashboardMyLearnings";
 import DashboardProfile from "./DashboardProfile/DashboardProfile";
 import DashboardHome from "./DashboardHome/DashboardHome";
+import {fetchCreatorPost} from "../../../utils/fetchCreator";
 
 function Dashboard() {
   const { action } = useParams();
@@ -42,6 +43,22 @@ class DashboardComponent extends React.Component {
     if (!localStorage.getItem("token")) {
       this.props.history.push('/')
     } else {
+
+      fetchCreatorPost('http://127.0.0.1:8080/api/auth/isTokenValid', {token: localStorage.getItem('token')})
+        .then(response => {
+          if (response === undefined) {
+            localStorage.removeItem("token");
+            this.props.history.push('/');
+          }
+          if (response.statusCode !== 200) {
+            localStorage.removeItem("token");
+            this.props.history.push('/');
+          }
+        })
+        .catch(() => {
+          localStorage.removeItem("token");
+          this.props.history.push('/');
+        })
       this.setState({
         logged: true,
       })

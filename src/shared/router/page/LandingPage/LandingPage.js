@@ -86,7 +86,7 @@ class LandingPageComponent extends React.Component {
         <div className="landingPage-whiteboard">
           <div className="landingPage-whiteboardCenterizer">
             {
-              this.state.promoCards.map((promoCard, index) => <PromoCard svgSrc={this.state.promoCards[index].svgSrc} title={this.state.promoCards[index].title} cardText={this.state.promoCards[index].cardText}/>)
+              this.state.promoCards.map((promoCard, index) => <PromoCard key={index} svgSrc={this.state.promoCards[index].svgSrc} title={this.state.promoCards[index].title} cardText={this.state.promoCards[index].cardText}/>)
             }
           </div>
         </div>
