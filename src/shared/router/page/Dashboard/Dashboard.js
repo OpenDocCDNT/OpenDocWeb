@@ -47,21 +47,30 @@ class DashboardComponent extends React.Component {
       fetchCreatorPost('http://127.0.0.1:8080/api/auth/isTokenValid', {token: localStorage.getItem('token')})
         .then(response => {
           if (response === undefined) {
+            this.setState({
+              logged: false,
+            })
             localStorage.removeItem("token");
             this.props.history.push('/');
           }
           if (response.statusCode !== 200) {
+            this.setState({
+              logged: false,
+            })
             localStorage.removeItem("token");
             this.props.history.push('/');
           }
+          this.setState({
+            logged: true,
+          })
         })
         .catch(() => {
+          this.setState({
+            logged: false,
+          })
           localStorage.removeItem("token");
           this.props.history.push('/');
         })
-      this.setState({
-        logged: true,
-      })
     }
   }
 
