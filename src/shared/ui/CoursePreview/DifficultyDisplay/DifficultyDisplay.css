@@ -1,0 +1,37 @@
+.difficultyDisplay-root {
+    height: 20px;
+    font-size: 12px;
+    width: 140px;
+    background: white;
+    border-radius: 6px;
+    box-shadow: -1px 0px 5px 0px rgba(0,0,0,0.55);
+    -webkit-box-shadow: -1px 0px 5px 0px rgba(0,0,0,0.55);
+    -moz-box-shadow: -1px 0px 5px 0px rgba(0,0,0,0.55);
+    display: flex;
+    align-items: center;
+
+}
+
+.difficultyDisplay-label {
+    margin-left: 5px;
+}
+
+.difficultyDisplay-bubbles {
+    flex: 1;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin-left: 5px;
+}
+
+.difficultyDisplay-bubble {
+    height: 12px;
+    width: 12px;
+    border-radius: 50%;
+    background: #BBDFF2;
+}
+
+.difficultyDisplay-bgGreen {
+    background: #4cd137 !important;
+}
