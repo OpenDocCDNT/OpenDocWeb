@@ -1,11 +1,34 @@
 .dashboardHome-root {
-    flex: 1;
-    background: #c782c7;
-    
+    background: #c782c7;   
+    display: grid;
+    width: 100%;
+    grid-template-columns: 25% 25% 25% 25%;
+    grid-template-rows: min-content;
+    grid-template-areas: "header header header header" "main main main main";
 }
 
 .dashboardHome-title-home {
     font-size: 48px;
-    text-align: center;
     margin: 10px;
+    grid-column-start: 1;
+    grid-column-end: 5;
+    place-self: center;
+}
+
+.dashboardHome-top-five{
+    
+    grid-column-start: 1;
+    grid-column-end: 3;
+    grid-row-start: 2;
+    grid-row-end: 2;
+    place-self: center;
+
+}
+
+.dashboardHome-latest{
+    grid-column-start: 3;
+    grid-column-end: 5;
+    grid-row-start: 2;
+    grid-row-end: 2;
+    place-self: center;
 }
