@@ -14,7 +14,7 @@
 
 .dashboardSideNav-widthModifier {
     position: relative;
-    font-size: 30px;
+    font-size: 20px;
     font-family: Impact, sans-serif;
     color: white;
     text-align: right;
@@ -23,6 +23,7 @@
     align-self: start;
     grid-row-start: 1;
     grid-row-end: 1;
+    transition: ease-in .3s;
 }
 
 .dashboardSideNav-titleLogo-Nav{
@@ -43,10 +44,14 @@
     width: 80%;
     grid-column-start: 1;
     grid-row-start: 2;
+    align-items: center;
+    
 }
 
 .dashboardSideNav-tabs-element{
     
     margin-top: 20px;
     margin-bottom: 20px;
+    transition: ease-in .3s;
+    color: aliceblue;
 }
