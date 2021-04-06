@@ -1,5 +1,5 @@
 .dashboardHome-root {
-    background: #c782c7;   
+    background: #399bd0;   
     display: grid;
     width: 100%;
     grid-template-columns: 25% 25% 25% 25%;
@@ -22,7 +22,11 @@
     grid-row-start: 2;
     grid-row-end: 2;
     place-self: center;
-
+    height: 50%;
+    width: 60%;
+    border: #005786 solid;
+    border-radius: 3%;
+    padding: 10px;
 }
 
 .dashboardHome-latest{
@@ -31,4 +35,9 @@
     grid-row-start: 2;
     grid-row-end: 2;
     place-self: center;
+    height: 50%;
+    width: 60%;
+    border: #005786 solid;
+    border-radius: 3%;
+    padding: 10px;  
 }
