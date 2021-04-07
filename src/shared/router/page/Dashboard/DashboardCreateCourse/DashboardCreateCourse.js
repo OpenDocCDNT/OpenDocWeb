@@ -29,26 +29,31 @@ class DashboardCreateCourseComp extends React.Component {
     this.steps = [
       {
         questionText: "Quel sera le nom de votre cours ?",
-        handleSubmitFunction: this.handleSubmitStepTitle
+        handleSubmitFunction: this.handleSubmitStepTitle,
+        handleUpdateFunction: this.handleUpdateStepTitle,
       },
       {
         questionText: "Quelle sera la description de votre cours",
-        handleSubmitFunction: this.handleSubmitStepDesc
+        handleSubmitFunction: this.handleSubmitStepDesc,
+        handleUpdateFunction: this.handleUpdateStepDesc,
       },
       {
         questionText: "Quelle est la difficulté du cours ?",
-        handleSubmitFunction: this.handleSubmitStepDiff
+        handleSubmitFunction: this.handleSubmitStepDiff,
+        handleUpdateFunction: this.handleUpdateStepDiff,
       },
       {
         questionText: "Quelle sera la miniature de votre cours ?",
-        handleSubmitFunction: this.handleSubmitStepImg
+        handleSubmitFunction: this.handleSubmitStepImg,
+        handleUpdateFunction: this.handleUpdateStepImg,
       }
     ]
   }
 
   handleSubmitStepTitle(inputValue) {
-    console.log("Yeet2")
+
     if (inputValue.length < 8) {
+      console.log(inputValue)
       this.setState({
         hintType: 'error',
         hintText: 'Veuillez saisir un titre de plus de 8 caractères'
@@ -56,20 +61,38 @@ class DashboardCreateCourseComp extends React.Component {
     }
   }
 
+  handleUpdateStepTitle(inputValue) {
+    console.log("Yeet2!")
+  }
+
+
   handleSubmitStepDesc(inputValue) {
     console.log("Yeet2")
   }
 
+  handleUpdateStepDesc(inputValue) {
+    console.log("Yeet2")
+  }
+
   handleSubmitStepDiff(inputValue) {
-    console.log("Yeet3")
+    console.log("Yeet2")
+  }
+
+  handleUpdateStepDiff(inputValue) {
+    console.log("Yeet2")
   }
 
   handleSubmitStepImg(inputValue) {
+    console.log("Yeet3")
+  }
+
+  handleUpdateStepImg(inputValue) {
     console.log("Yeet4")
   }
 
 
   handleInputChange(newInputValue) {
+    this.steps[this.state.step-1].handleUpdateFunction(newInputValue);
     this.setState({
       newInputValue: newInputValue
     })
@@ -77,6 +100,7 @@ class DashboardCreateCourseComp extends React.Component {
 
   handleSubmit(inputValue) {
     this.steps[this.state.step-1].handleSubmitFunction(inputValue);
+
   }
 
   render() {

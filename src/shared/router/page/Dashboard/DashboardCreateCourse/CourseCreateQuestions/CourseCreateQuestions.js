@@ -20,6 +20,12 @@ class DashboardCreateCourseQuestionsComp extends React.Component {
       questionText: this.props.questionText
     }
   }
+  static getDerivedStateFromProps(nextProps) {
+    return {
+      hintType: nextProps.hintType,
+      hintText: nextProps.hintText,
+    }
+  }
 
   handleSubmit(inputValue) {
     this.props.onInputSubmit(inputValue)
@@ -34,13 +40,13 @@ class DashboardCreateCourseQuestionsComp extends React.Component {
       <div className="dashboardCreateCourseQuestion-root">
         <div className="dashboardCreateCourseQuestion-stepAndHintContainer">
           <span className="dashboardCreateCourseQuestion-stepAndHintContainer-step">{"Step - " + this.state.step}</span>
-          <HintBar hintType="neutral" text="Regardez l'aperçu en bas de votre écran pour vous aider" />
+          <HintBar hintType="neutral" hintText="Regardez l'aperçu en bas de votre écran pour vous aider" />
         </div>
         <div className="dashboardCreateCourseQuestion-question">
           <div className="dashboardCreateCourseQuestion-question-centerfix">{this.state.questionText}</div>
         </div>
         <div className="dashboardCreateCourseQuestion-answer">
-          <HintBar hintType={this.state.hintType} text={this.state.hintText}/>
+          <HintBar hintType={this.state.hintType} hintText={this.state.hintText}/>
           <DynamicInput inputType={this.state.hintType} inputSize={310} onChange={this.handleInputChange} onSubmit={this.handleSubmit}/>
         </div>
       </div>
