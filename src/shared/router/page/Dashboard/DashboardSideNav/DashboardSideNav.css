@@ -1,36 +1,57 @@
 .dashboardSideNav-root {
-    position: relative;
+    display: grid;
+    grid-template-areas: "titleLogo1 titleLogo2 titleLogo3" "section1 section2 section3";
+    grid-template-rows: 15% 85%;
+    grid-template-columns: 50% 40% 10%;
     height: 100vh;
     background: #43A4D9;
-    transition: width ease-in-out .3s;
+    transition: ease-in .3s;
     box-shadow: 0.5px 0px 10px #2F3640;
+    z-index: 1;
 }
+
+
 
 .dashboardSideNav-widthModifier {
     position: relative;
-    font-size: 30px;
+    font-size: 20px;
     font-family: Impact, sans-serif;
     color: white;
     text-align: right;
+    grid-column-start: 2;
+    grid-column-end: 4;
+    align-self: start;
+    grid-row-start: 1;
+    grid-row-end: 1;
+    transition: ease-in .3s;
 }
 
 .dashboardSideNav-titleLogo-Nav{
-    display: block;
+    
     margin-top: 20px;
     margin-left: auto;
     margin-right: auto;
-    width: 80%;
+    grid-column-start: 1;
+    grid-column-end: 4;
+    grid-row-start: 1;
+    place-self: center;
 }
 
 .dashboardSideNav-tabs{
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
+    
+    margin-left: 35%;
+    margin-right: 5px;
     width: 80%;
+    grid-column-start: 1;
+    grid-row-start: 2;
+    align-items: center;
+    
 }
 
 .dashboardSideNav-tabs-element{
-    display: block;
+    
     margin-top: 20px;
     margin-bottom: 20px;
+    transition: ease-in .3s;
+    color: aliceblue;
 }

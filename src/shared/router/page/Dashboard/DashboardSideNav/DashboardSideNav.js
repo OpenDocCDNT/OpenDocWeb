@@ -2,6 +2,14 @@ import './DashboardSideNav.css';
 import React from "react";
 import {Link, useHistory} from "react-router-dom";
 import logo from './../../../../img/svg/logo.svg';
+import logoRetracted from './../../../../img/svg/logo3.svg';
+
+import logoLesson from './../../../../img/svg/Picture1.svg';
+import LogoExplore from './../../../../img/svg/Picture1.svg';
+import LogoMyLesson from './../../../../img/svg/Picture1.svg';
+import logoCreate from './../../../../img/svg/Picture2.svg';
+import logoAchievement from './../../../../img/svg/Picture4.svg';
+import logoMyAccount from './../../../../img/svg/Picture3.svg';
 
 function DashboardSideNav() {
   const history = useHistory();
@@ -9,13 +17,40 @@ function DashboardSideNav() {
 }
 
 class DashboardSideNavComp extends React.Component {
+
+
   constructor(props) {
     super(props);
     this.handleRetractMenu = this.handleRetractMenu.bind(this);
-    this.defaultFullNavWidth = 250;
-    this.defaultRetractedNavWidth = 30;
+    this.defaultFullNavWidth = 320;
+    this.defaultRetractedNavWidth = 45;
+    this.defaultLogo = logo;
+    this.defaultRetractedLogo = logoRetracted;
+
+    this.defaultLessonTxt = "Liste des cours";
+    this.defaultCreateLessonTxt = "Créer un cours";
+    this.defaultExploreTxt = "Explore ?";
+    this.defaultMyLessonTxt = "Gérer ses modules (gérer ses cours)";
+    this.defaultAchievementTxt = "Achievement? (Ma progression ?)";
+    this.defaultMyAccountTxt = "Mon compte";
+    
+    this.defaultRetractedLessonTxt = <img src={logoLesson} alt="defaultRetractedLessonTxt"/>;
+    this.defaultRetractedCreateLessonTxt = <img src={logoCreate} alt="defaultRetractedCreateLessonTxt"/>;
+    this.defaultRetractedExploreTxt = <img src={LogoExplore} alt="defaultRetractedExploreTxt"/>;
+    this.defaultRetractedMyLessonTxt = <img src={LogoMyLesson} alt="defaultRetractedMyLessonTxt"/>;
+    this.defaultRetractedAchievementTxt = <img src={logoAchievement} alt="defaultRetractedAchievementTxt"/>;
+    this.defaultRetractedMyAccountTxt = <img src={logoMyAccount} alt="defaultRetractedMyAccountTxt"/>;
+    
     this.state = {
       navWidth: this.defaultFullNavWidth,
+      navLogo: this.defaultLogo,
+
+      navListLesson: this.defaultLessonTxt,
+      navMyAccount: this.defaultMyAccountTxt,
+      navAchievement: this.defaultAchievementTxt,
+      navCreateLesson: this.defaultCreateLessonTxt,
+      navExplore: this.defaultExploreTxt,
+      navMyLesson: this.defaultMyLessonTxt,
       isNavRetracted: false
     }
   }
@@ -33,16 +68,29 @@ class DashboardSideNavComp extends React.Component {
   handleRetractMenu() {
     if (this.state.isNavRetracted) {
       this.setState({
-        navWidth: this.defaultFullNavWidth,
+        navWidth:this.defaultFullNavWidth,
+        navLogo: this.defaultLogo,
+        navListLesson: this.defaultLessonTxt,
+        navMyAccount: this.defaultMyAccountTxt,
+        navAchievement: this.defaultAchievementTxt,
+        navCreateLesson: this.defaultCreateLessonTxt,
+        navExplore: this.defaultExploreTxt,
+        navMyLesson: this.defaultMyLessonTxt,
         isNavRetracted: false
       })
     } else {
       this.setState({
         navWidth: this.defaultRetractedNavWidth,
+        navLogo: this.defaultRetractedLogo,
+        navListLesson: this.defaultRetractedLessonTxt,
+        navMyAccount: this.defaultRetractedMyAccountTxt,
+        navAchievement: this.defaultRetractedAchievementTxt,
+        navCreateLesson: this.defaultRetractedCreateLessonTxt,
+        navExplore: this.defaultRetractedExploreTxt,
+        navMyLesson: this.defaultRetractedMyLessonTxt,
         isNavRetracted: true
       })
     }
-
   }
 
   /** 
@@ -53,18 +101,20 @@ class DashboardSideNavComp extends React.Component {
   render() {
     return (
       <div id="dashboardSideNavId" className="dashboardSideNav-root">
-        <div className="dashboardSideNav-widthModifier" onClick={this.handleRetractMenu}>◄</div>
-        <Link to="/">
-          <img className="dashboardSideNav-titleLogo-Nav" src={logo} alt="OpenDoc"/>
-        </Link>
-        <br/><br/>
+        <div className="dashboardSideNav-widthModifier" onClick={this.handleRetractMenu}> 
+          ◄
+        </div>
+          <Link className="dashboardSideNav-titleLogo-Nav" to="/">
+              <img src={this.state.navLogo} alt="OpenDoc"/>
+          </Link> 
+
         <div className="dashboardSideNav-tabs">
-        <Link to="/dashboard/course" className="dashboardSideNav-tabs-element">Liste des cours</Link><br/>
-        <Link to="/dashboard/create" className="dashboardSideNav-tabs-element">Créer un cours</Link><br/>
-        <Link to="/dashboard/explore" className="dashboardSideNav-tabs-element">Explore ?</Link><br/>
-        <Link to="/dashboard/manage" className="dashboardSideNav-tabs-element">Gérer ses modules (gérer ses cours)</Link><br/>
-        <Link to="/dashboard/achievement" className="dashboardSideNav-tabs-element">Achievement? (Ma progression ?)</Link><br/>
-        <Link to="/dashboard/profile" className="dashboardSideNav-tabs-element">Mon compte</Link><br/>
+          <Link to="/dashboard/course" className="dashboardSideNav-tabs-element">{this.state.navListLesson}</Link><br/>
+          <Link to="/dashboard/create" className="dashboardSideNav-tabs-element">{this.state.navCreateLesson}</Link><br/>
+          <Link to="/dashboard/explore" className="dashboardSideNav-tabs-element">{this.state.navExplore}</Link><br/>
+          <Link to="/dashboard/manage" className="dashboardSideNav-tabs-element">{this.state.navMyLesson}</Link><br/>
+          <Link to="/dashboard/achievement" className="dashboardSideNav-tabs-element">{this.state.navAchievement}</Link><br/>
+          <Link to="/dashboard/profile" className="dashboardSideNav-tabs-element">{this.state.navMyAccount}</Link><br/>
         </div>
       </div>
     )
