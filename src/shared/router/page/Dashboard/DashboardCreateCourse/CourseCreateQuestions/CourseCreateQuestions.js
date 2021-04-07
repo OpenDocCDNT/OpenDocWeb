@@ -4,8 +4,8 @@ import HintBar from "../../../../../ui/HintBar/HintBar";
 import DynamicInput from "../../../../../ui/Input/DynamicInput/DynamicInput";
 
 
-function DashboardCreateCourseQuestions() {
-  return <DashboardCreateCourseQuestionsComp/>
+function DashboardCreateCourseQuestions(props) {
+  return <DashboardCreateCourseQuestionsComp hintText={props.hintText} hintType={props.hintType} questionText={props.questionText} questionStep={props.questionStep} onInputChange={props.onInputChange} onInputSubmit={props.onInputSubmit}/>
 }
 
 class DashboardCreateCourseQuestionsComp extends React.Component {
@@ -14,19 +14,19 @@ class DashboardCreateCourseQuestionsComp extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleInputChange = this.handleInputChange.bind(this);
     this.state = {
-      step: 0,
-      hintType: 'important',
-      hintText: "Veuillez saisir un titre pour votre cours",
-      inputPlaceholder: 'Fabriquez votre fauteuil de jardin en palettes'
+      step: this.props.questionStep,
+      hintType: this.props.hintType,
+      hintText: this.props.hintText,
+      questionText: this.props.questionText
     }
   }
 
-  handleSubmit() {
-
+  handleSubmit(inputValue) {
+    this.props.onInputSubmit(inputValue)
   }
 
-  handleInputChange() {
-
+  handleInputChange(newInputValue) {
+    this.props.onInputChange(newInputValue)
   }
 
   render() {
@@ -37,11 +37,11 @@ class DashboardCreateCourseQuestionsComp extends React.Component {
           <HintBar hintType="neutral" text="Regardez l'aperçu en bas de votre écran pour vous aider" />
         </div>
         <div className="dashboardCreateCourseQuestion-question">
-          <div className="dashboardCreateCourseQuestion-question-centerfix">{"This is a very good question !"}</div>
+          <div className="dashboardCreateCourseQuestion-question-centerfix">{this.state.questionText}</div>
         </div>
         <div className="dashboardCreateCourseQuestion-answer">
           <HintBar hintType={this.state.hintType} text={this.state.hintText}/>
-          <DynamicInput inputType={this.state.hintType} inputSize={310} inputPlaceholder={this.state.inputPlaceholder} onChange={this.handleInputChange} onSubmit={this.handleSubmit}/>
+          <DynamicInput inputType={this.state.hintType} inputSize={310} onChange={this.handleInputChange} onSubmit={this.handleSubmit}/>
         </div>
       </div>
     )

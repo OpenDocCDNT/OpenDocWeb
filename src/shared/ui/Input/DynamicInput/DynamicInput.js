@@ -58,11 +58,11 @@ class DynamicInputNeutral extends React.Component {
 
   handleFormSubmit(event) {
     event.preventDefault();
-    console.log(event)
+    this.props.onSubmit(event.target[0].value)
   }
 
   handleInputChange(event) {
-    console.log(event.target.value)
+    this.props.onChange(event.target.value)
   }
 
   render() {

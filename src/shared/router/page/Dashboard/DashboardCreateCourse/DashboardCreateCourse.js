@@ -13,9 +13,70 @@ function DashboardCreateCourse() {
 class DashboardCreateCourseComp extends React.Component {
   constructor(props) {
     super(props);
+    this.handleInputChange = this.handleInputChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleSubmitStepTitle = this.handleSubmitStepTitle.bind(this);
+    this.handleSubmitStepDesc = this.handleSubmitStepDesc.bind(this);
+    this.handleSubmitStepDiff = this.handleSubmitStepDiff.bind(this);
+    this.handleSubmitStepImg = this.handleSubmitStepImg.bind(this);
     this.state = {
-      step: 0
+      step: 1,
+      newInputValue: "Fabriquez votre fauteuil de jardin en palettes",
+      questionText: "Quel sera le nom de votre cours ?",
+      hintType: 'important',
+      hintText: 'Veuillez saisir un titre pour votre cours'
     }
+    this.steps = [
+      {
+        questionText: "Quel sera le nom de votre cours ?",
+        handleSubmitFunction: this.handleSubmitStepTitle
+      },
+      {
+        questionText: "Quelle sera la description de votre cours",
+        handleSubmitFunction: this.handleSubmitStepDesc
+      },
+      {
+        questionText: "Quelle est la difficulté du cours ?",
+        handleSubmitFunction: this.handleSubmitStepDiff
+      },
+      {
+        questionText: "Quelle sera la miniature de votre cours ?",
+        handleSubmitFunction: this.handleSubmitStepImg
+      }
+    ]
+  }
+
+  handleSubmitStepTitle(inputValue) {
+    console.log("Yeet2")
+    if (inputValue.length < 8) {
+      this.setState({
+        hintType: 'error',
+        hintText: 'Veuillez saisir un titre de plus de 8 caractères'
+      })
+    }
+  }
+
+  handleSubmitStepDesc(inputValue) {
+    console.log("Yeet2")
+  }
+
+  handleSubmitStepDiff(inputValue) {
+    console.log("Yeet3")
+  }
+
+  handleSubmitStepImg(inputValue) {
+    console.log("Yeet4")
+  }
+
+
+  handleInputChange(newInputValue) {
+    this.setState({
+      newInputValue: newInputValue
+    })
+  }
+
+  handleSubmit(inputValue) {
+    this.steps[this.state.step-1].handleSubmitFunction(inputValue);
   }
 
   render() {
@@ -25,13 +86,13 @@ class DashboardCreateCourseComp extends React.Component {
           <div className="dashboardCreateCourse-mainTitle">Bienvenue sur la création de cours</div>
           <div className="dashboardCreateCourse-subTitle">C'est ici que tout commence, répondez à ce questionnaire pour débuter</div>
           <div className="dashboardCreateCourse-progressBar">
-            <ProgressBar progressType="success" barSize={600} progressSize={10} text="Titre - 1"/>
+            <ProgressBar progressType="success" barSize={600} progressSize={100} text="Titre - 2"/>
           </div>
           <div className="dashboardCreateCourse-questions">
-            <DashboardCreateCourseQuestions />
+            <DashboardCreateCourseQuestions hintText={this.state.hintText} hintType={this.state.hintType} questionStep={this.state.step} questionText={this.state.questionText} onInputChange={this.handleInputChange} onInputSubmit={this.handleSubmit}/>
           </div>
           <div className="dashboardCreateCourse-preview">
-            <CoursePreview courseImg="/src" courseTitle="Fabriquez votre fauteuil de jardin en palettes" courseText="Tutoriel de construction d'un fauteuil de jardin avec des palettes en bois" courseDifficulty={3}/>
+            <CoursePreview courseImg="/src" courseTitle={this.state.newInputValue} courseText="Tutoriel de construction d'un fauteuil de jardin avec des palettes en bois" courseDifficulty={3}/>
           </div>
         </div>
       </div>

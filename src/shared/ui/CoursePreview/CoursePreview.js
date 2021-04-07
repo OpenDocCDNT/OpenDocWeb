@@ -18,6 +18,13 @@ class CoursePreviewComp extends React.Component {
     }
   }
 
+  static getDerivedStateFromProps(nextProps) {
+    return {
+      courseText: nextProps.courseText,
+      courseTitle: nextProps.courseTitle
+    }
+  }
+
   render() {
     return (
       <div className="coursePreview-root">
