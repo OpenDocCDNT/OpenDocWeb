@@ -26,6 +26,11 @@ class DashboardSideNavComp extends React.Component {
     this.defaultRetractedNavWidth = 45;
     this.defaultLogo = logo;
     this.defaultRetractedLogo = logoRetracted;
+    this.defaultArrow = "◄";
+    this.defaultRetractedArrow = "►";
+
+    
+
 
     this.defaultLessonTxt = "Liste des cours";
     this.defaultCreateLessonTxt = "Créer un cours";
@@ -44,6 +49,7 @@ class DashboardSideNavComp extends React.Component {
     this.state = {
       navWidth: this.defaultFullNavWidth,
       navLogo: this.defaultLogo,
+      navArrow: this.defaultArrow,
 
       navListLesson: this.defaultLessonTxt,
       navMyAccount: this.defaultMyAccountTxt,
@@ -76,6 +82,7 @@ class DashboardSideNavComp extends React.Component {
         navCreateLesson: this.defaultCreateLessonTxt,
         navExplore: this.defaultExploreTxt,
         navMyLesson: this.defaultMyLessonTxt,
+        navArrow: this.defaultArrow,
         isNavRetracted: false
       })
     } else {
@@ -88,6 +95,7 @@ class DashboardSideNavComp extends React.Component {
         navCreateLesson: this.defaultRetractedCreateLessonTxt,
         navExplore: this.defaultRetractedExploreTxt,
         navMyLesson: this.defaultRetractedMyLessonTxt,
+        navArrow: this.defaultRetractedArrow,
         isNavRetracted: true
       })
     }
@@ -102,19 +110,19 @@ class DashboardSideNavComp extends React.Component {
     return (
       <div id="dashboardSideNavId" className="dashboardSideNav-root">
         <div className="dashboardSideNav-widthModifier" onClick={this.handleRetractMenu}> 
-          ◄
+          {this.state.navArrow}
         </div>
           <Link className="dashboardSideNav-titleLogo-Nav" to="/">
               <img src={this.state.navLogo} alt="OpenDoc"/>
           </Link> 
 
         <div className="dashboardSideNav-tabs">
-          <Link to="/dashboard/course" className="dashboardSideNav-tabs-element">{this.state.navListLesson}</Link><br/>
-          <Link to="/dashboard/create" className="dashboardSideNav-tabs-element">{this.state.navCreateLesson}</Link><br/>
-          <Link to="/dashboard/explore" className="dashboardSideNav-tabs-element">{this.state.navExplore}</Link><br/>
-          <Link to="/dashboard/manage" className="dashboardSideNav-tabs-element">{this.state.navMyLesson}</Link><br/>
-          <Link to="/dashboard/achievement" className="dashboardSideNav-tabs-element">{this.state.navAchievement}</Link><br/>
-          <Link to="/dashboard/profile" className="dashboardSideNav-tabs-element">{this.state.navMyAccount}</Link><br/>
+          <Link to="/dashboard/course" className="dashboardSideNav-tabs-element item1">{this.state.navListLesson}</Link><br/>
+          <Link to="/dashboard/create" className="dashboardSideNav-tabs-element item2">{this.state.navCreateLesson}</Link><br/>
+          <Link to="/dashboard/explore" className="dashboardSideNav-tabs-element item3">{this.state.navExplore}</Link><br/>
+          <Link to="/dashboard/manage" className="dashboardSideNav-tabs-element item4">{this.state.navMyLesson}</Link><br/>
+          <Link to="/dashboard/achievement" className="dashboardSideNav-tabs-element item5">{this.state.navAchievement}</Link><br/>
+          <Link to="/dashboard/profile" className="dashboardSideNav-tabs-element item6">{this.state.navMyAccount}</Link><br/>
         </div>
       </div>
     )

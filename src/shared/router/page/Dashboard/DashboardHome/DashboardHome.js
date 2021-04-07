@@ -13,10 +13,15 @@ class DashboardHomeComp extends React.Component {
       <div className="dashboardHome-root">
         <h1 className="dashboardHome-title-home"> Bienvenue sur OpenDoc </h1>
           <div className="dashboardHome-top-five"> 
-            TOP 5 Modules de cours 
+            <h2 className="subTitle">
+              TOP 5 Modules de cours
+            </h2>
+             
           </div>
           <div className="dashboardHome-latest">
-            Dernier Modules de cours créé
+            <h2 className="subTitle">
+              Dernier Modules de cours créé
+            </h2>
           </div>
       </div>
     );
