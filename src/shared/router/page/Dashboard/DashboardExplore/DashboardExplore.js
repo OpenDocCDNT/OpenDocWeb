@@ -41,11 +41,11 @@ class DashboardExploreComp extends React.Component {
         return console.log('ok');
       }
       //SUCCESS
-      return console.log('lessonList');
+      return console.log(response.json);
 
     })
     .catch(() => {
-        return console.log('Erreur Final')
+        return console.log('Erreur Final');
     })
   }
 
@@ -75,6 +75,7 @@ class DashboardExploreComp extends React.Component {
           {this.state.lessonList.map((item, key) => {
             return (
               <p> {item.label}</p>
+              
             );
           })}
             <Cart />
