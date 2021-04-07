@@ -1,4 +1,11 @@
 .dashboardHome-root {
     flex: 1;
     background: #c782c7;
+    
+}
+
+.dashboardHome-title-home {
+    font-size: 48px;
+    text-align: center;
+    margin: 10px;
 }

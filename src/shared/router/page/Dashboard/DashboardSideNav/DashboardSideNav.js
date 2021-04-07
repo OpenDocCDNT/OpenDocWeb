@@ -1,6 +1,7 @@
 import './DashboardSideNav.css';
 import React from "react";
 import {Link, useHistory} from "react-router-dom";
+import logo from './../../../../img/svg/logo.svg';
 
 function DashboardSideNav() {
   const history = useHistory();
@@ -44,17 +45,27 @@ class DashboardSideNavComp extends React.Component {
 
   }
 
+  /** 
+   * 
+   * mis sur home Etant donné que la page d'acceuil c'est la liste des cours nan ?
+   *  
+  **/
   render() {
     return (
       <div id="dashboardSideNavId" className="dashboardSideNav-root">
         <div className="dashboardSideNav-widthModifier" onClick={this.handleRetractMenu}>◄</div>
-        <Link to="./home">home</Link><br/>
-        <Link to="./course">course</Link><br/>
-        <Link to="./create">create</Link><br/>
-        <Link to="./explore">explore</Link><br/>
-        <Link to="./manage">manage</Link><br/>
-        <Link to="./achievement">achievement</Link><br/>
-        <Link to="./profile">profile</Link><br/>
+        <Link to="/">
+          <img className="dashboardSideNav-titleLogo-Nav" src={logo} alt="OpenDoc"/>
+        </Link>
+        <br/><br/>
+        <div className="dashboardSideNav-tabs">
+        <Link to="/dashboard/course" className="dashboardSideNav-tabs-element">Liste des cours</Link><br/>
+        <Link to="/dashboard/create" className="dashboardSideNav-tabs-element">Créer un cours</Link><br/>
+        <Link to="/dashboard/explore" className="dashboardSideNav-tabs-element">Explore ?</Link><br/>
+        <Link to="/dashboard/manage" className="dashboardSideNav-tabs-element">Gérer ses modules (gérer ses cours)</Link><br/>
+        <Link to="/dashboard/achievement" className="dashboardSideNav-tabs-element">Achievement? (Ma progression ?)</Link><br/>
+        <Link to="/dashboard/profile" className="dashboardSideNav-tabs-element">Mon compte</Link><br/>
+        </div>
       </div>
     )
   }
