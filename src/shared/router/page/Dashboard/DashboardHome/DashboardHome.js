@@ -2,6 +2,8 @@ import './DashboardHome.css';
 import React from 'react';
 import { useHistory } from 'react-router-dom';
 import url from '../../../../utils/commonParameters.js';
+import {fetchCreatorPost} from "../../../../utils/fetchCreator";
+
 const lessons = [
   {
       id: 1,
@@ -84,6 +86,38 @@ function DashboardHome() {
 }
 
 class DashboardHomeComp extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      checked: false ,
+      lessonList: [],
+      search_string: ""
+    };
+      this.handleChange = this.handleChange.bind(this);
+  }
+  handleChange(checked) {
+    this.setState({ checked });
+  }
+  getLessons() {
+    fetchCreatorPost(url + '/lesson/topLesson')
+    .then(response => {
+      if(response === undefined) {
+        return console.log('Erreur undefined');
+      } 
+      if(response.statusCode === !200 && response.statusCode !== 418) {
+        return console.log('Erreur 418 oo !200');
+      }
+      if(response.statusCode === 418) {
+        return console.log('ok');
+      }
+      //SUCCESS
+      return console.log(response.json);
+
+    })
+    .catch(() => {
+        return console.log('Erreur Final');
+    })
+  }
   
   render() {
     return (
@@ -95,7 +129,9 @@ class DashboardHomeComp extends React.Component {
               TOP 5 Modules de cours
             </h2>
             <div className="gridCards">
-            <ul>{listLessons}</ul>
+            <ul>{listLessons}
+            
+            </ul>
               </div>
             <button className="viewAll">View All 1</button>
           </div>
@@ -111,5 +147,10 @@ class DashboardHomeComp extends React.Component {
     );
   }
 }
-
+/* {this.state.lessonList.map((item, key) => {
+  return (
+    <p> {item.label}</p>
+    
+  );
+})}*/
 export default DashboardHome;
