@@ -8,82 +8,37 @@
     --hintBar-svgWidth: 20px;
 }
 
-.hintBarNeutral-root {
+.hintBar-root {
     height: var(--hintBar-height);
     border-radius: 6px;
     color: #2F3640;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    font-size: var(--hintBar-fontSize);
+}
+
+.hintBar-text {
+    margin-left: 12px;
+}
+
+.hintBar-img {
+    margin-left: 8px;
+    width: var(--hintBar-svgWidth);
+}
+
+.hintBar-background-neutral {
     background: var(--hintBar-backGroundcolor-neutral);
-    overflow: hidden;
-    display: flex;
-    align-items: center;
-    font-size: var(--hintBar-fontSize);
 }
 
-.hintBarImportant-root {
-    height: var(--hintBar-height);
-    border-radius: 6px;
-    color: #2F3640;
+.hintBar-background-important {
     background: var(--hintBar-backGroundcolor-important);
-    overflow: hidden;
-    display: flex;
-    align-items: center;
-    font-size: var(--hintBar-fontSize);
 }
 
-.hintBarError-root {
-    height: var(--hintBar-height);
-    border-radius: 6px;
-    color: #2F3640;
+.hintBar-background-error {
     background: var(--hintBar-backGroundcolor-error);
-    overflow: hidden;
-    display: flex;
-    align-items: center;
-    font-size: var(--hintBar-fontSize);
 }
 
-.hintBarSuccess-root {
-    height: var(--hintBar-height);
-    border-radius: 6px;
-    color: #2F3640;
+.hintBar-background-success {
     background: var(--hintBar-backGroundcolor-success);
-    overflow: hidden;
-    display: flex;
-    align-items: center;
-    font-size: var(--hintBar-fontSize);
-}
-
-.hintBarNeutral-text {
-    margin-left: 12px;
-}
-
-.hintBarNeutral-img {
-    margin-left: 8px;
-    width: var(--hintBar-svgWidth);
-}
-
-.hintBarImportant-text {
-    margin-left: 12px;
-}
-
-.hintBarImportant-img {
-    margin-left: 8px;
-    width: var(--hintBar-svgWidth);
-}
-
-.hintBarError-text {
-    margin-left: 12px;
-}
-
-.hintBarError-img {
-    margin-left: 8px;
-    width: var(--hintBar-svgWidth);
-}
-
-.hintBarSuccess-text {
-    margin-left: 12px;
-}
-
-.hintBarSuccess-img {
-    margin-left: 8px;
-    width: var(--hintBar-svgWidth);
 }

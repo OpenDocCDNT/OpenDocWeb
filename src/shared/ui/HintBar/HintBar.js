@@ -5,125 +5,96 @@ import hintBarImportantSvg from "../../img/svg/ui/hintBar/hintBarImportant.svg"
 import hintBarErrorSvg from "../../img/svg/ui/hintBar/hintBarError.svg"
 import hintBarSuccessSvg from "../../img/svg/ui/hintBar/hintBarSuccess.svg"
 function HintBar(props) {
-  let hintType = props.hintType;
-  switch (hintType) {
-    case "neutral":
-      return <HintBarNeutral text={props.text}/>
-    case "important":
-      return <HintBarImportant text={props.text}/>
-    case "error":
-      return <HintBarError text={props.text}/>
-    case "success":
-      return <HintBarSuccess text={props.text}/>
-    default:
-      return <HintBarNeutral text={props.text}/>
-  }
+  return <HintBarComp hintType={props.hintType} hintText={props.hintText}/>
 }
 
-class HintBarNeutral extends React.Component {
+class HintBarComp extends React.Component {
   constructor(props) {
     super(props);
     this.widthDefiner = this.widthDefiner.bind(this);
+    this.backgroundSetter = this.backgroundSetter.bind(this);
+    this.state = {
+      hintText: this.props.hintText,
+      hintType: this.props.hintType,
+    }
+    this.hintBarRoot = React.createRef();
+    this.hintBarText = React.createRef();
+    this.hintBarBackgroundClass = {
+      neutral: "hintBar-background-neutral",
+      important: "hintBar-background-important",
+      error: "hintBar-background-error",
+      success: "hintBar-background-success",
+    }
+  }
+
+  backgroundSetter() {
+    const hintBarRoot = this.hintBarRoot.current;
+    switch (this.state.hintType) {
+      case "error":
+        hintBarRoot.classList.add(this.hintBarBackgroundClass.error)
+        break;
+      case "important":
+        hintBarRoot.classList.add(this.hintBarBackgroundClass.important)
+        break;
+      case "neutral":
+        hintBarRoot.classList.add(this.hintBarBackgroundClass.neutral)
+        break;
+      case "success":
+        hintBarRoot.classList.add(this.hintBarBackgroundClass.success)
+        break;
+      default:
+        hintBarRoot.classList.add(this.hintBarBackgroundClass.neutral)
+        break;
+    }
+  }
+
+  static getDerivedStateFromProps(nextProps) {
+    return {
+      hintType: nextProps.hintType,
+      hintText: nextProps.hintText,
+    }
+  }
+
+  componentDidUpdate(prevProps, prevState, snapshot) {
+    this.widthDefiner();
+    this.backgroundSetter();
   }
 
   widthDefiner() {
-    const text = document.getElementById("hintBarNeutral-text");
-    const hintBarErrorRoot = document.getElementById("hintBarNeutral-root");
-    const width = text.getBoundingClientRect().width + 73;
+    const text = this.hintBarText.current;
+    const hintBarErrorRoot = this.hintBarRoot.current;
+    const width = text.getBoundingClientRect().width + 55;
     hintBarErrorRoot.style.width = width + "px";
   }
 
   componentDidMount() {
     this.widthDefiner();
+    this.backgroundSetter();
   }
 
   render() {
+    let hintBarSvg = hintBarNeutralSvg;
+    switch (this.state.hintType) {
+      case "error":
+        hintBarSvg = hintBarErrorSvg
+        break;
+      case "important":
+        hintBarSvg = hintBarImportantSvg
+        break;
+      case "neutral":
+        hintBarSvg = hintBarNeutralSvg
+        break;
+      case "success":
+        hintBarSvg = hintBarSuccessSvg
+        break;
+      default:
+        hintBarSvg = hintBarNeutralSvg
+        break;
+    }
     return (
-      <div id="hintBarNeutral-root" className="hintBarNeutral-root">
-        <img className="hintBarNeutral-img" src={hintBarNeutralSvg} alt="X"/>
-        <span id="hintBarNeutral-text" className="hintBarNeutral-text">{this.props.text}</span>
-      </div>
-    )
-  }
-}
-
-class HintBarImportant extends React.Component {
-  constructor(props) {
-    super(props);
-    this.widthDefiner = this.widthDefiner.bind(this);
-  }
-
-  widthDefiner() {
-    const text = document.getElementById("hintBarImportant-text");
-    const hintBarErrorRoot = document.getElementById("hintBarImportant-root");
-    const width = text.getBoundingClientRect().width + 73;
-    hintBarErrorRoot.style.width = width + "px";
-  }
-
-  componentDidMount() {
-    this.widthDefiner();
-  }
-
-  render() {
-    return (
-      <div id="hintBarImportant-root" className="hintBarImportant-root">
-        <img className="hintBarImportant-img" src={hintBarImportantSvg} alt="X"/>
-        <span id="hintBarImportant-text" className="hintBarImportant-text">{this.props.text}</span>
-      </div>
-    )
-  }
-}
-
-class HintBarError extends React.Component {
-  constructor(props) {
-    super(props);
-    this.widthDefiner = this.widthDefiner.bind(this);
-  }
-
-  widthDefiner() {
-    const text = document.getElementById("hintBarError-text");
-    const hintBarErrorRoot = document.getElementById("hintBarError-root");
-    const width = text.getBoundingClientRect().width + 73;
-    hintBarErrorRoot.style.width = width + "px";
-  }
-
-  componentDidMount() {
-    this.widthDefiner();
-  }
-
-  render() {
-    return (
-      <div id="hintBarError-root" className="hintBarError-root">
-        <img className="hintBarError-img" src={hintBarErrorSvg} alt="X"/>
-        <span id="hintBarError-text" className="hintBarError-text">{this.props.text}</span>
-      </div>
-    )
-  }
-}
-
-
-class HintBarSuccess extends React.Component {
-  constructor(props) {
-    super(props);
-    this.widthDefiner = this.widthDefiner.bind(this);
-  }
-
-  widthDefiner() {
-    const text = document.getElementById("hintBarSuccess-text");
-    const hintBarErrorRoot = document.getElementById("hintBarSuccess-root");
-    const width = text.getBoundingClientRect().width + 73;
-    hintBarErrorRoot.style.width = width + "px";
-  }
-
-  componentDidMount() {
-    this.widthDefiner();
-  }
-
-  render() {
-    return (
-      <div id="hintBarSuccess-root" className="hintBarSuccess-root">
-        <img className="hintBarSuccess-img" src={hintBarSuccessSvg} alt="X"/>
-        <span id="hintBarSuccess-text" className="hintBarSuccess-text">{this.props.text}</span>
+      <div id="hintBar-root" ref={this.hintBarRoot} className="hintBar-root">
+        <img className="hintBar-img" src={hintBarSvg} alt="X"/>
+        <span ref={this.hintBarText} id="hintBar-text" className="hintBar-text">{this.props.hintText}</span>
       </div>
     )
   }

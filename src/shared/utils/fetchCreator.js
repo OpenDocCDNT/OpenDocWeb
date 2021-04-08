@@ -38,8 +38,23 @@ function fetchCreatorPost(url, bodyParams) {
   })
 }
 
-function fetchCreatorGet(url, bodyParams) {
-  //TODO : Fetch Get Creator
+function fetchCreatorGet(url) {
+  return new Promise((resolve, reject) => {
+    let statusCode;
+    fetch(url, {
+      method: 'GET',
+      headers: {
+        'Accept': 'application/x-www-form-urlencoded',
+        'Content-Type': 'application/x-www-form-urlencoded'
+      }
+    }).then(r => {
+      statusCode = r.status;
+      resolve(statusCode)
+    }).catch(e => {
+      console.log(e)
+      reject();
+    })
+  })
 }
 
 export {fetchCreatorPost, fetchCreatorGet};
