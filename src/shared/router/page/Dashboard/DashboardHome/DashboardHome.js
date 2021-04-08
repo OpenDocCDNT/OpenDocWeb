@@ -1,9 +1,8 @@
 import './DashboardHome.css';
 import React from 'react';
 import { useHistory } from 'react-router-dom';
-import FlatList from 'react';
-/*
-const lesson = [
+import url from '../../../../utils/commonParameters.js';
+const lessons = [
   {
       id: 1,
       label: 'test1',
@@ -51,6 +50,17 @@ const lesson = [
   }
 ];
 
+const listLessons = lessons.map((lesson, i) =>
+  <li className={"cardContent card" + i++}>
+    <h3 className="cardTitle">
+    {lesson.label}
+    </h3>
+    <p className="cardDescription">
+      {lesson.description}
+    </p>
+  </li>
+);
+/*
 <ul>
               <FlatList
                 list={this.props.lesson}
@@ -58,7 +68,6 @@ const lesson = [
                 renderWhenEmpty={() => <div>List is empty!</div>}
               />
             </ul>
-*/
 
 //<LessonList people={lesson}/>
 
@@ -67,7 +76,7 @@ const renderLesson = (lesson, idx) => {
     <b>{lesson.label} {lesson.description}</b>
   </li>
 }
-
+*/
 
 function DashboardHome() {
   const history = useHistory();
@@ -85,13 +94,19 @@ class DashboardHomeComp extends React.Component {
             <h2 className='subTitle'>
               TOP 5 Modules de cours
             </h2>
+            <div className="gridCards">
+            <ul>{listLessons}</ul>
+              </div>
+            <button className="viewAll">View All 1</button>
           </div>
           
           <div className='dashboardHome-square sq2'>
             <h2 className='subTitle'>
               Dernier Modules de cours créé
             </h2>
+            <button className="viewAll">View All 2</button>
           </div>
+          
       </div>
     );
   }
