@@ -2,7 +2,7 @@ import './DashboardHome.css';
 import React from 'react';
 import { useHistory } from 'react-router-dom';
 import FlatList from 'react';
-
+/*
 const lesson = [
   {
       id: 1,
@@ -51,6 +51,15 @@ const lesson = [
   }
 ];
 
+<ul>
+              <FlatList
+                list={this.props.lesson}
+                renderItem={renderLesson}
+                renderWhenEmpty={() => <div>List is empty!</div>}
+              />
+            </ul>
+*/
+
 //<LessonList people={lesson}/>
 
 const renderLesson = (lesson, idx) => {
@@ -75,14 +84,6 @@ class DashboardHomeComp extends React.Component {
             <h2 className='subTitle'>
               TOP 5 Modules de cours
             </h2>
-            <ul>
-              <FlatList
-                list={this.props.lesson}
-                renderItem={renderLesson}
-                renderWhenEmpty={() => <div>List is empty!</div>}
-              />
-            </ul>
-             
           </div>
           <div className='dashboardHome-latest'>
             <h2 className='subTitle'>
