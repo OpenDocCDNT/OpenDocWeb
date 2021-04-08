@@ -22,15 +22,12 @@ class DashboardSideNavComp extends React.Component {
   constructor(props) {
     super(props);
     this.handleRetractMenu = this.handleRetractMenu.bind(this);
-    this.defaultFullNavWidth = 320;
-    this.defaultRetractedNavWidth = 45;
+    this.defaultFullNavWidth = 25;
+    this.defaultRetractedNavWidth = 5;
     this.defaultLogo = logo;
     this.defaultRetractedLogo = logoRetracted;
     this.defaultArrow = "◄";
     this.defaultRetractedArrow = "►";
-
-    
-
 
     this.defaultLessonTxt = "Liste des cours";
     this.defaultCreateLessonTxt = "Créer un cours";
@@ -39,12 +36,12 @@ class DashboardSideNavComp extends React.Component {
     this.defaultAchievementTxt = "Achievement? (Ma progression ?)";
     this.defaultMyAccountTxt = "Mon compte";
     
-    this.defaultRetractedLessonTxt = <img src={logoLesson} alt="defaultRetractedLessonTxt"/>;
-    this.defaultRetractedCreateLessonTxt = <img src={logoCreate} alt="defaultRetractedCreateLessonTxt"/>;
-    this.defaultRetractedExploreTxt = <img src={LogoExplore} alt="defaultRetractedExploreTxt"/>;
-    this.defaultRetractedMyLessonTxt = <img src={LogoMyLesson} alt="defaultRetractedMyLessonTxt"/>;
-    this.defaultRetractedAchievementTxt = <img src={logoAchievement} alt="defaultRetractedAchievementTxt"/>;
-    this.defaultRetractedMyAccountTxt = <img src={logoMyAccount} alt="defaultRetractedMyAccountTxt"/>;
+    this.defaultRetractedLessonTxt = <img className="imgNav" src={logoLesson} alt="defaultRetractedLessonTxt"/>;
+    this.defaultRetractedCreateLessonTxt = <img className="imgNav"  src={logoCreate} alt="defaultRetractedCreateLessonTxt"/>;
+    this.defaultRetractedExploreTxt = <img className="imgNav"  src={LogoExplore} alt="defaultRetractedExploreTxt"/>;
+    this.defaultRetractedMyLessonTxt = <img className="imgNav"  src={LogoMyLesson} alt="defaultRetractedMyLessonTxt"/>;
+    this.defaultRetractedAchievementTxt = <img className="imgNav"  src={logoAchievement} alt="defaultRetractedAchievementTxt"/>;
+    this.defaultRetractedMyAccountTxt = <img className="imgNav"  src={logoMyAccount} alt="defaultRetractedMyAccountTxt"/>;
     
     this.state = {
       navWidth: this.defaultFullNavWidth,
@@ -63,12 +60,12 @@ class DashboardSideNavComp extends React.Component {
 
   componentDidUpdate(prevProps, prevState, snapshot) {
     const dashboardSideNav = document.getElementById("dashboardSideNavId");
-    dashboardSideNav.style.width = this.state.navWidth + "px";
+    dashboardSideNav.style.width = this.state.navWidth + "vw";
   }
 
   componentDidMount() {
     const dashboardSideNav = document.getElementById("dashboardSideNavId");
-    dashboardSideNav.style.width = this.state.navWidth + "px";
+    dashboardSideNav.style.width = this.state.navWidth + "vw";
   }
 
   handleRetractMenu() {
@@ -113,7 +110,7 @@ class DashboardSideNavComp extends React.Component {
           {this.state.navArrow}
         </div>
           <Link className="dashboardSideNav-titleLogo-Nav" to="/">
-              <img src={this.state.navLogo} alt="OpenDoc"/>
+              <img className="imgNav"  src={this.state.navLogo} alt="OpenDoc"/>
           </Link> 
 
         <div className="dashboardSideNav-tabs">
@@ -123,10 +120,10 @@ class DashboardSideNavComp extends React.Component {
           <Link to="/dashboard/manage" className="dashboardSideNav-tabs-element item4">{this.state.navMyLesson}</Link><br/>
           <Link to="/dashboard/achievement" className="dashboardSideNav-tabs-element item5">{this.state.navAchievement}</Link><br/>
           <Link to="/dashboard/profile" className="dashboardSideNav-tabs-element item6">{this.state.navMyAccount}</Link><br/>
-        </div>
+          </div>
       </div>
     )
   }
 }
-
+// <Link to="/dashboard/profile" className="dashboardSideNav-tabs-element item7">{this.state.navMyAccount}</Link><br/>
 export default DashboardSideNav;

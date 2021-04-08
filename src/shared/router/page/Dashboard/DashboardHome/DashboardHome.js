@@ -1,9 +1,10 @@
 import './DashboardHome.css';
 import React from 'react';
 import { useHistory } from 'react-router-dom';
-import FlatList from 'react';
-/*
-const lesson = [
+import url from '../../../../utils/commonParameters.js';
+import {fetchCreatorPost} from "../../../../utils/fetchCreator";
+
+const lessons = [
   {
       id: 1,
       label: 'test1',
@@ -51,6 +52,17 @@ const lesson = [
   }
 ];
 
+const listLessons = lessons.map((lesson, i) =>
+  <li className={"cardContent card" + i++}>
+    <h3 className="cardTitle">
+    {lesson.label}
+    </h3>
+    <p className="cardDescription">
+      {lesson.description}
+    </p>
+  </li>
+);
+/*
 <ul>
               <FlatList
                 list={this.props.lesson}
@@ -58,7 +70,6 @@ const lesson = [
                 renderWhenEmpty={() => <div>List is empty!</div>}
               />
             </ul>
-*/
 
 //<LessonList people={lesson}/>
 
@@ -67,7 +78,7 @@ const renderLesson = (lesson, idx) => {
     <b>{lesson.label} {lesson.description}</b>
   </li>
 }
-
+*/
 
 function DashboardHome() {
   const history = useHistory();
@@ -75,6 +86,38 @@ function DashboardHome() {
 }
 
 class DashboardHomeComp extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      checked: false ,
+      lessonList: [],
+      search_string: ""
+    };
+      this.handleChange = this.handleChange.bind(this);
+  }
+  handleChange(checked) {
+    this.setState({ checked });
+  }
+  getLessons() {
+    fetchCreatorPost(url + '/lesson/topLesson')
+    .then(response => {
+      if(response === undefined) {
+        return console.log('Erreur undefined');
+      } 
+      if(response.statusCode === !200 && response.statusCode !== 418) {
+        return console.log('Erreur 418 oo !200');
+      }
+      if(response.statusCode === 418) {
+        return console.log('ok');
+      }
+      //SUCCESS
+      return console.log(response.json);
+
+    })
+    .catch(() => {
+        return console.log('Erreur Final');
+    })
+  }
   
   render() {
     return (
@@ -85,16 +128,29 @@ class DashboardHomeComp extends React.Component {
             <h2 className='subTitle'>
               TOP 5 Modules de cours
             </h2>
+            <div className="gridCards">
+            <ul>{listLessons}
+            
+            </ul>
+              </div>
+            <button className="viewAll">View All 1</button>
           </div>
           
           <div className='dashboardHome-square sq2'>
             <h2 className='subTitle'>
               Dernier Modules de cours créé
             </h2>
+            <button className="viewAll">View All 2</button>
           </div>
+          
       </div>
     );
   }
 }
-
+/* {this.state.lessonList.map((item, key) => {
+  return (
+    <p> {item.label}</p>
+    
+  );
+})}*/
 export default DashboardHome;

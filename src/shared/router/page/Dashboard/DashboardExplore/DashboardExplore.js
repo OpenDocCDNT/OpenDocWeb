@@ -74,7 +74,7 @@ class DashboardExploreComp extends React.Component {
         <div className="dashboardExplore-lessonGroup">
           {this.state.lessonList.map((item, key) => {
             return (
-              <p> {item.label}</p>
+              <p> {"test" + item.label}</p>
               
             );
           })}
