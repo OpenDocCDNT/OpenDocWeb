@@ -29,14 +29,9 @@
     padding-left: 1vw;
 }
 
-.dashboardHome-top-five{
+.dashboardHome-square{
     font-family: 'Ubuntu', sans-serif;
     font-size: 2vw;
-    grid-column-start: 1;
-    grid-column-end: 3;
-    grid-row-start: 2;
-    grid-row-end: 2;
-    place-self: center;
     height: 60%;
     width: 80%;
     background-color: azure;
@@ -44,20 +39,20 @@
     padding: 10px;
 }
 
-.dashboardHome-latest{
-    font-family: 'Ubuntu', sans-serif;
-    font-size: 2vw;
+.sq1 {
+    grid-column-start: 1;
+    grid-column-end: 3;
+    grid-row-start: 2;
+    grid-row-end: 2;
+    place-self: center;
+}
+
+.sq2 {
     grid-column-start: 3;
     grid-column-end: 5;
     grid-row-start: 2;
     grid-row-end: 2;
     place-self: center;
-    height: 60%;
-    width: 80%;
-    background-color: azure;
-    
-    border-radius: 2vw;
-    padding: 10px;  
 }
 
 .subTitle{
