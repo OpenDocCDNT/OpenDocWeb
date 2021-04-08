@@ -113,3 +113,10 @@
     grid-row-start: 7;
     grid-row-end: 7;
 }
+
+@media only screen and (max-width: 600px) {
+    .dashboardSideNav-widthModifier {
+        display: none;
+    }
+
+}

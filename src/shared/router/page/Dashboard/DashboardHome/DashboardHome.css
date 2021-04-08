@@ -20,7 +20,6 @@
     background-color: azure;
     color: rgb(93, 93, 93);
     width: 80%;
-    border-radius: 0.5vw;
     grid-column-start: 1;
     grid-column-end: 5;
     place-self: center;
@@ -34,7 +33,6 @@
     height: 70%;
     width: 80%;
     background-color: azure;
-    border-radius: 2vw;
     padding: 10px;
     display: grid;
     grid-template-columns: 100%;
@@ -109,10 +107,36 @@
 
 .viewAll{
     font-family: 'Ubuntu', sans-serif;
-    font-size: 12px;
-    height: 3vh;
+    font-size: 0.9vw;
     grid-column-start: 1;
     grid-row-start: 3;
     grid-row-end: 3;
     text-decoration: none;
+    place-self: center;
 }
+
+@media only screen and (max-width: 600px) {
+    .dashboardHome-root {
+        background: #399bd0;   
+        display: grid;
+        width: 100%;
+        grid-template-columns: 25% 25% 25% 25%;
+        grid-template-rows: 20% 40% 40%;
+        grid-template-areas: "header header header header" "main main main main" "main2 main2 main2 main2";
+    }
+    .sq1 {
+        grid-column-start: 1;
+        grid-column-end: 5;
+        grid-row-start: 2;
+        grid-row-end: 2;
+        place-self: center;
+    }
+    
+    .sq2 {
+        grid-column-start: 1;
+        grid-column-end: 5;
+        grid-row-start: 3;
+        grid-row-end: 3;
+        place-self: center;
+    }
+  }

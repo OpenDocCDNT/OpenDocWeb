@@ -29,9 +29,6 @@ class DashboardSideNavComp extends React.Component {
     this.defaultArrow = "◄";
     this.defaultRetractedArrow = "►";
 
-    
-
-
     this.defaultLessonTxt = "Liste des cours";
     this.defaultCreateLessonTxt = "Créer un cours";
     this.defaultExploreTxt = "Explore ?";
