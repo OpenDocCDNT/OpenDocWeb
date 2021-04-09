@@ -110,7 +110,7 @@ class DashboardSideNavComp extends React.Component {
           {this.state.navArrow}
         </div>
           <Link className="dashboardSideNav-titleLogo-Nav" to="/">
-              <img className="imgNav"  src={this.state.navLogo} alt="OpenDoc"/>
+              <img className="imgNav imgNavLogo"  src={this.state.navLogo} alt="OpenDoc"/>
           </Link> 
 
         <div className="dashboardSideNav-tabs">

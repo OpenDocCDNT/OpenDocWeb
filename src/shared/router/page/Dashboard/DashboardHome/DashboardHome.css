@@ -19,11 +19,11 @@
     font-size: 3.5vw;
     background-color: azure;
     color: rgb(93, 93, 93);
-    width: 80%;
+    width: 100%;
     grid-column-start: 1;
     grid-column-end: 5;
     place-self: center;
-    margin-top: 5%;
+    margin-top: 3%;
     padding-top: 3%;
     padding-bottom: 3%;
     padding-left: 1vw;
@@ -55,6 +55,12 @@
     place-self: center;
 }
 
+.squareContent{
+    grid-row-start: 2;
+    grid-row-end: 2;
+
+}
+
 .subTitle{
     font-family: 'Ubuntu', sans-serif;
     font-size: 1.2vw;
@@ -66,17 +72,50 @@
 .gridCards{
     padding-top: 0.4vw;
     display: grid;
-    width: 100%;
-    height: 100%;
-    grid-template-columns: 100%;
     grid-template-rows: 20% 20% 20% 20% 20%;
 }
 
 .cardContent{
-    width: 100%;
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: 60% 40%;
+    grid-template-areas: "Image Title";
     height: 100%;
     text-align: center;
 }
+
+.cardHeader{
+    height: 100%;
+    grid-column-start: 1;
+    grid-row-start: 1;
+    grid-row-end: 1;
+}
+
+.cardTitle{
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 1.1vw;
+    text-align: left;
+    padding-bottom: 0.2vw;
+    width: 100%;
+    height: 100%;
+    grid-column-start: 1;
+    grid-row-start: 2;
+    grid-row-end: 2;
+}
+/**
+.cardDescription{
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 1vw;
+    margin-left: 1.8vw;
+    text-align: left;
+    grid-column-start: 1;
+    grid-row-start: 3;
+    grid-row-end: 3;
+    display:inline-block;
+    width:90%;
+    overflow:hidden !important;
+}**/
+
 
 .card0{
     grid-column-start: 1;
@@ -90,19 +129,22 @@
     grid-row-end: 2;
 }
 
-.cardTitle{
-    font-family: 'Ubuntu', sans-serif;
-    font-size: 1.1vw;
-    text-align: left;
-    padding-bottom: 0.2vw;
-    width: 100%;
+.card2{
+    grid-column-start: 1;
+    grid-row-start: 3;
+    grid-row-end: 3;
 }
 
-.cardDescription{
-    font-family: 'Ubuntu', sans-serif;
-    font-size: 1vw;
-    margin-left: 2vw;
-    text-align: left;
+.card3{
+    grid-column-start: 1;
+    grid-row-start: 4;
+    grid-row-end: 4;
+}
+
+.card4{
+    grid-column-start: 1;
+    grid-row-start: 5;
+    grid-row-end: 5;
 }
 
 .viewAll{
@@ -139,4 +181,4 @@
         grid-row-end: 3;
         place-self: center;
     }
-  }
+}
