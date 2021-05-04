@@ -57,7 +57,7 @@ lessons.sort((a, b) => b.reputation-a.reputation);
 
 
 const listLessons = lessons.map((lesson, i) => (
-  <li className={"card" + i++ + " cardContent"}>
+  <li key={lesson.id} className={"card" + i++ + " cardContent"}>
     <img className="cardHeader" src="" alt="cardHeader" />
     <h3 className="cardTitle">{lesson.label}</h3>
     <p className="cardReputation">{lesson.reputation}</p>
@@ -65,7 +65,7 @@ const listLessons = lessons.map((lesson, i) => (
 ));
 
 const listLatestLessons = lessons.map((lesson, i) => (
-  <li className={"card" + i++ + " cardContent"}>
+  <li key={lesson.id} className={"card" + i++ + " cardContent"}>
     <img className="cardHeader" src="" alt="cardHeader" />
     <h3 className="cardTitle">{lesson.label}</h3>
   </li>
@@ -75,8 +75,6 @@ function DashboardHome() {
   const history = useHistory();
   return <DashboardHomeComp history={history} />;
 }
-
-
 
 class DashboardHomeComp extends React.Component {
   
@@ -88,31 +86,34 @@ class DashboardHomeComp extends React.Component {
       search_string: "",
     };
     this.handleChange = this.handleChange.bind(this);
+
+    fetchCreatorPost(url + "/lesson/topLesson", null)
+    .then((response) => {
+      if (response === undefined) {
+        return console.log("Erreur undefined");
+      }
+      if (response.statusCode === !200 && response.statusCode !== 418) {
+        return console.log("Erreur 418 oo !200");
+      }
+      if (response.statusCode === 418) {
+        return console.log("ok");
+      }
+      //SUCCESS
+      return console.log("Lessons top 5 => " + response.json + " " +  url + "/lesson/topLesson");
+    })
+    .catch(() => {
+      return console.log("Erreur Final");
+      
+    });
   }
 
   handleChange(checked) {
     this.setState({ checked });
   }
 
-  getLessons() {
-    fetchCreatorPost(url + "/lesson/topLesson")
-      .then((response) => {
-        if (response === undefined) {
-          return console.log("Erreur undefined");
-        }
-        if (response.statusCode === !200 && response.statusCode !== 418) {
-          return console.log("Erreur 418 oo !200");
-        }
-        if (response.statusCode === 418) {
-          return console.log("ok");
-        }
-        //SUCCESS
-        return console.log(response.json);
-      })
-      .catch(() => {
-        return console.log("Erreur Final");
-      });
-  }
+  
+  
+  
 
   render() {
     return (
