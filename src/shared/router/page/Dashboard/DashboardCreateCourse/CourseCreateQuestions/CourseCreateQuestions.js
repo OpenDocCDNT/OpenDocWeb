@@ -68,7 +68,7 @@ class DashboardCreateCourseQuestionsComp extends React.Component {
           </div>
           <div className="dashboardCreateCourseQuestion-answerSection">
             <div className="dashboardCreateCourseQuestion-answerSectionTitle">Choisissez son image :</div>
-            <ImageUpload  handleChangeImg={this.handleInputChangeImg}/>
+            <ImageUpload handleChangeImg={this.handleInputChangeImg}/>
           </div>
         </div>
       </div>

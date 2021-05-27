@@ -1,10 +1,49 @@
 .imageUpload-root {
-    height: 20px;
+    position: relative;
+    height: 40px;
     font-size: 12px;
-    width: 140px;
+    width: 95%;
     border-radius: 6px;
+    display: flex;
+}
 
+.imageUpload-input {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    opacity: 0;
+    z-index: 5000;
+    cursor: pointer;
+    background: #4cd137;
+}
 
+.imageUpload-display {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 4999;
+    cursor: pointer;
+    outline: 2px dashed #4a4a4a;
+    outline-offset: -3px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.imageUpload-imgUpload {
+    height: 80%;
+}
+
+.imageUpload-displayBgValid {
+    outline: 2px dashed #4cd137 !important;
 }
 
 .imageUpload-label {
@@ -31,6 +70,3 @@
     background: #4cd137 !important;
 }
 
-.imageUpload-input {
-    opacity:0
-}

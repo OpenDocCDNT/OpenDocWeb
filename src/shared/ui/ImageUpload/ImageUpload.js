@@ -1,5 +1,6 @@
 import './ImageUpload.css';
 import React from "react";
+import imgUpload from "./../../img/svg/photoUpload.svg"
 
 function ImageUpload(props) {
   return <ImageUploadComp handleChangeImg={props.handleChangeImg}/>
@@ -35,7 +36,7 @@ class ImageUploadComp extends React.Component {
         divisionIndice = 1000000
       }
       return(
-          <span>{this.state.file.name + " - " + (this.state.file.size/divisionIndice)+ fileMesurement}</span>
+          <span className="imageUpload-span">{this.state.file.name + " - " + (this.state.file.size/divisionIndice)+ fileMesurement}</span>
       )
     }
   }
@@ -48,8 +49,10 @@ class ImageUploadComp extends React.Component {
 
     return (
       <div className="imageUpload-root">
-        {this.fileData()}
-        <input type="file" name="profilePicture" accept="image/png, image/gif, image/jpeg" className="imageUpload-input" onChange={this.onFileChange} />
+        <input type="file" name="profilePicture" accept="image/png, image/gif, image/jpeg" className="imageUpload-input" onChange={this.onFileChange}/>
+        <div className={ this.state.file ? "imageUpload-display imageUpload-displayBgValid" : "imageUpload-display"}>
+          <img className="imageUpload-imgUpload" src={imgUpload} alt="UPLOAD"/>
+        </div>
       </div>
     )
   }
