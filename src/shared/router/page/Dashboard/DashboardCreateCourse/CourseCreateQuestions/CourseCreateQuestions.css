@@ -25,10 +25,12 @@
 
 .dashboardCreateCourseQuestion-question {
     width: 100%;
-    height: 80px;
+    height: 20px;
     display: flex;
     justify-content: center;
 }
+
+
 
 .dashboardCreateCourseQuestion-question-centerfix {
     max-width: 350px;
@@ -41,9 +43,23 @@
 
 .dashboardCreateCourseQuestion-answer {
     width: 100%;
-    height: 80px;
+    height: 155px;
     display: flex;
     align-items: center;
     justify-content: space-around;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.dashboardCreateCourseQuestion-answerSection {
+    width: 49%;
+    height: 47%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     flex-direction: column;
+}
+
+.dashboardCreateCourseQuestion-answerSectionTitle {
+    height: 30px;
 }

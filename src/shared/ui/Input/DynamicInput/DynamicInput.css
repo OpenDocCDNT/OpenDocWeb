@@ -18,6 +18,14 @@
     font-size: 18px;
 }
 
+.dynamicInput-inputRegularWidth {
+    width: 270px;
+}
+
+.dynamicInput-inputFullWidth {
+    width: 100%;
+}
+
 .dynamicInput-input:focus {
     outline: none;
 }

@@ -11,6 +11,7 @@ class DynamicInputNeutral extends React.Component {
     this.adaptStyle = this.adaptStyle.bind(this);
     this.handleFormSubmit = this.handleFormSubmit.bind(this);
     this.handleInputChange = this.handleInputChange.bind(this);
+    this.changeStyle = this.changeStyle.bind(this);
     this.state = {
       inputType: this.props.inputType,
       inputSize: this.props.inputSize,
@@ -51,9 +52,45 @@ class DynamicInputNeutral extends React.Component {
     }
   }
 
+  changeStyle(status) {
+    const inputEl = this.inputEl.current;
+
+    switch (status) {
+      case "neutral":
+        inputEl.style.borderColor = this.colors.neutral;
+        break;
+      case "important":
+        inputEl.style.borderColor = this.colors.important;
+        break;
+      case "error":
+        inputEl.style.borderColor = this.colors.error;
+        break;
+      case "success":
+        inputEl.style.borderColor = this.colors.success;
+        break;
+      default:
+        inputEl.style.borderColor = this.colors.neutral;
+        break;
+    }
+  }
+
+  static getDerivedStateFromProps(props) {
+
+    return {
+      inputType: props.inputType
+    }
+  }
+
+  getSnapshotBeforeUpdate(prevProps, prevState) {
+    this.changeStyle(this.state.inputType)
+    return true;
+  }
+
+  componentDidUpdate(prevProps, prevState, snapshot) {
+  }
+
   componentDidMount() {
     this.adaptStyle();
-
   }
 
   handleFormSubmit(event) {
@@ -66,13 +103,24 @@ class DynamicInputNeutral extends React.Component {
   }
 
   render() {
+
+    let displaySubmit = true;
+    if (this.props.onSubmit === undefined) {
+      displaySubmit = false;
+    }
+
     return (
       <div ref={this.rootEl} className="dynamicInput-root">
         <form onSubmit={event => {this.handleFormSubmit(event)}}>
-          <input onChange={event => this.handleInputChange(event)} ref={this.inputEl} className="dynamicInput-input" type="text"/>
-          <input type="submit" className="dynamicInput-buttonSubmit" value={"OK"}/>
+          <input onChange={event => this.handleInputChange(event)} ref={this.inputEl} className={
+              displaySubmit ? "dynamicInput-input dynamicInput-inputRegularWidth" : "dynamicInput-input dynamicInput-inputFullWidth"
+          } type="text"/>
+          {
+            displaySubmit ? <input type="submit" className="dynamicInput-buttonSubmit" value={"OK"}/> : ""
+          }
         </form>
       </div>
+
     )
   }
 }
