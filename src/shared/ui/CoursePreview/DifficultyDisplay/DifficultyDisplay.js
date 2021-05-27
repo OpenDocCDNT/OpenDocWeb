@@ -15,7 +15,24 @@ class DifficultyDisplayComp extends React.Component {
     this.bubbles = [React.createRef(), React.createRef(), React.createRef(), React.createRef(), React.createRef()]
   }
 
+  static getDerivedStateFromProps(nextProps) {
+    return {
+      difficulty: nextProps.difficulty
+    }
+  }
+
+  getSnapshotBeforeUpdate(prevProps, prevState) {
+    this.setStyles()
+    return true
+  }
+
+  componentDidUpdate(prevProps, prevState, snapshot) {
+  }
+
   setStyles() {
+    for (let i=0;i<this.bubbles.length;i++) {
+      this.bubbles[i].current.classList.remove("difficultyDisplay-bgGreen")
+    }
     for (let i=0;i<this.state.difficulty;i++) {
       this.bubbles[i].current.classList.add("difficultyDisplay-bgGreen")
     }

@@ -4,6 +4,7 @@ import {useHistory} from "react-router-dom";
 import ProgressBar from "../../../../ui/ProgressBar/ProgressBar";
 import DashboardCreateCourseQuestions from "./CourseCreateQuestions/CourseCreateQuestions";
 import CoursePreview from "../../../../ui/CoursePreview/CoursePreview";
+import ImageUpload from "../../../../ui/ImageUpload/ImageUpload";
 
 function DashboardCreateCourse() {
   const history = useHistory();
@@ -17,8 +18,6 @@ class DashboardCreateCourseComp extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleSubmitStepTitle = this.handleSubmitStepTitle.bind(this);
     this.handleSubmitStepDesc = this.handleSubmitStepDesc.bind(this);
-    this.handleSubmitStepDiff = this.handleSubmitStepDiff.bind(this);
-    this.handleSubmitStepImg = this.handleSubmitStepImg.bind(this);
     this.handleUpdateStepTitle = this.handleUpdateStepTitle.bind(this);
     this.handleUpdateStepDesc = this.handleUpdateStepDesc.bind(this);
     this.handleUpdateStepDiff = this.handleUpdateStepDiff.bind(this);
@@ -30,6 +29,8 @@ class DashboardCreateCourseComp extends React.Component {
       statusImg: "neutral",
       valueInputTitle: "Fabriquez votre fauteuil de jardin en palettes",
       valueInputDesc: "Tutoriel de construction d'un fauteuil de jardin avec des palettes en bois",
+      valueInputDiff: 1,
+      valueInputImg: null,
       inputIsValid: false,
     }
   }
@@ -52,7 +53,6 @@ class DashboardCreateCourseComp extends React.Component {
   }
 
   handleUpdateStepTitle(inputValue) {
-    console.log(inputValue.length)
     if (inputValue.length === 0) {
       this.setState({
         statusTitle: 'neutral',
@@ -120,20 +120,21 @@ class DashboardCreateCourseComp extends React.Component {
 
   }
 
-  handleSubmitStepDiff(inputValue) {
-    console.log("Yeet2")
-  }
+
 
   handleUpdateStepDiff(inputValue) {
-    console.log("Yeet2")
+    this.setState({
+      valueInputDiff: inputValue
+    })
   }
 
-  handleSubmitStepImg(inputValue) {
-    console.log("Yeet3")
-  }
+
 
   handleUpdateStepImg(inputValue) {
     console.log("Yeet4")
+    this.setState({
+      valueInputImg: window.URL.createObjectURL(inputValue)
+    })
   }
 
 
@@ -173,7 +174,7 @@ class DashboardCreateCourseComp extends React.Component {
             }/>
           </div>
           <div className="dashboardCreateCourse-preview">
-            <CoursePreview courseImg="/src" courseTitle={this.state.valueInputTitle} courseText={this.state.valueInputDesc} courseDifficulty={3}/>
+            <CoursePreview courseImg={this.state.valueInputImg} courseTitle={this.state.valueInputTitle} courseText={this.state.valueInputDesc} courseDifficulty={this.state.valueInputDiff}/>
           </div>
         </div>
       </div>

@@ -2,6 +2,8 @@ import './CourseCreateQuestions.css';
 import React from "react";
 import HintBar from "../../../../../ui/HintBar/HintBar";
 import DynamicInput from "../../../../../ui/Input/DynamicInput/DynamicInput";
+import DifficultyInput from "../../../../../ui/DifficultyInput/DifficultyInput";
+import ImageUpload from "../../../../../ui/ImageUpload/ImageUpload";
 
 
 function DashboardCreateCourseQuestions(props) {
@@ -13,6 +15,8 @@ class DashboardCreateCourseQuestionsComp extends React.Component {
     super(props);
     this.handleInputChangeTitle = this.handleInputChangeTitle.bind(this);
     this.handleInputChangeDesc = this.handleInputChangeDesc.bind(this);
+    this.handleInputChangeDiff = this.handleInputChangeDiff.bind(this);
+    this.handleInputChangeImg = this.handleInputChangeImg.bind(this);
     this.state = {
       data: this.props.data
     }
@@ -33,11 +37,11 @@ class DashboardCreateCourseQuestionsComp extends React.Component {
   }
 
   handleInputChangeDiff(newInputValue) {
-    this.props.data.onInputChangeTitle(newInputValue)
+    this.props.data.onInputChangeDiff(newInputValue)
   }
 
   handleInputChangeImg(newInputValue) {
-    this.props.data.onInputChangeDesc(newInputValue)
+    this.props.data.onInputChangeImg(newInputValue)
   }
 
   render() {
@@ -60,11 +64,11 @@ class DashboardCreateCourseQuestionsComp extends React.Component {
           </div>
           <div className="dashboardCreateCourseQuestion-answerSection">
             <div className="dashboardCreateCourseQuestion-answerSectionTitle">Saisissez son niveau de difficulté :</div>
-            <DynamicInput inputType={this.state.data.statusDiff} inputSize={310} onChange={this.handleInputChangeDiff}/>
+            <DifficultyInput yeet="yeet" handleChangeDiff={this.handleInputChangeDiff}/>
           </div>
           <div className="dashboardCreateCourseQuestion-answerSection">
             <div className="dashboardCreateCourseQuestion-answerSectionTitle">Choisissez son image :</div>
-            <DynamicInput inputType={this.state.data.statusImg} inputSize={310} onChange={this.handleInputChangeImg}/>
+            <ImageUpload  handleChangeImg={this.handleInputChangeImg}/>
           </div>
         </div>
       </div>

@@ -19,17 +19,27 @@ class CoursePreviewComp extends React.Component {
   }
 
   static getDerivedStateFromProps(nextProps) {
-
+    console.log(nextProps.courseImg)
     return {
       courseText: nextProps.courseText,
-      courseTitle: nextProps.courseTitle
+      courseTitle: nextProps.courseTitle,
+      courseDifficulty: nextProps.courseDifficulty,
+      courseImg: nextProps.courseImg
     }
   }
 
   render() {
+    let displayImg = false;
+    console.log(this.state.courseImg)
+    if (this.state.courseImg !== null) {
+      displayImg = true
+    }
     return (
       <div className="coursePreview-root">
-        <div className="coursePreview-img"/>
+        {
+           displayImg ? <img src={this.state.courseImg} className="coursePreview-imgObject" alt="Course"/> : <div className="coursePreview-imgDiv"/>
+        }
+
         <div className="coursePreview-textContainer">
           <div className="coursePreview-textContainer-title">
             <span >{this.state.courseTitle}</span>

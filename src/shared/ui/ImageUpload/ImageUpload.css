@@ -1,0 +1,36 @@
+.imageUpload-root {
+    height: 20px;
+    font-size: 12px;
+    width: 140px;
+    border-radius: 6px;
+
+
+}
+
+.imageUpload-label {
+    margin-left: 5px;
+}
+
+.imageUpload-bubbles {
+    flex: 1;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin-left: 5px;
+}
+
+.imageUpload-bubble {
+    height: 24px;
+    width: 24px;
+    border-radius: 50%;
+    background: #BBDFF2;
+}
+
+.imageUpload-bgGreen {
+    background: #4cd137 !important;
+}
+
+.imageUpload-input {
+    opacity:0
+}
