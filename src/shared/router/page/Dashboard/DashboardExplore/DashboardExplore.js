@@ -27,7 +27,7 @@ class DashboardExploreComp extends React.Component {
         return console.log('Erreur undefined');
       } 
       if(response.statusCode === !200 && response.statusCode !== 418) {
-        return console.log('Erreur 418 oo !200');
+        return console.log('Erreur 418 ou !200');
       }
       if(response.statusCode === 418) {
         return console.log('ok');
