@@ -29,7 +29,7 @@ class DashboardSideNavComp extends React.Component {
     this.defaultArrow = "◄";
     this.defaultRetractedArrow = "►";
 
-    this.defaultLessonTxt = "Liste des cours";
+  
     this.defaultCreateLessonTxt = "Créer un cours";
     this.defaultExploreTxt = "Explore ?";
     this.defaultMyLessonTxt = "Gérer ses modules (gérer ses cours)";
@@ -48,7 +48,6 @@ class DashboardSideNavComp extends React.Component {
       navLogo: this.defaultLogo,
       navArrow: this.defaultArrow,
 
-      navListLesson: this.defaultLessonTxt,
       navMyAccount: this.defaultMyAccountTxt,
       navAchievement: this.defaultAchievementTxt,
       navCreateLesson: this.defaultCreateLessonTxt,
@@ -73,7 +72,6 @@ class DashboardSideNavComp extends React.Component {
       this.setState({
         navWidth:this.defaultFullNavWidth,
         navLogo: this.defaultLogo,
-        navListLesson: this.defaultLessonTxt,
         navMyAccount: this.defaultMyAccountTxt,
         navAchievement: this.defaultAchievementTxt,
         navCreateLesson: this.defaultCreateLessonTxt,
@@ -114,12 +112,11 @@ class DashboardSideNavComp extends React.Component {
           </Link> 
 
         <div className="dashboardSideNav-tabs">
-          <Link to="/dashboard/course" className="dashboardSideNav-tabs-element item1">{this.state.navListLesson}</Link><br/>
-          <Link to="/dashboard/create" className="dashboardSideNav-tabs-element item2">{this.state.navCreateLesson}</Link><br/>
-          <Link to="/dashboard/explore" className="dashboardSideNav-tabs-element item3">{this.state.navExplore}</Link><br/>
-          <Link to="/dashboard/manage" className="dashboardSideNav-tabs-element item4">{this.state.navMyLesson}</Link><br/>
-          <Link to="/dashboard/achievement" className="dashboardSideNav-tabs-element item5">{this.state.navAchievement}</Link><br/>
-          <Link to="/dashboard/profile" className="dashboardSideNav-tabs-element item6">{this.state.navMyAccount}</Link><br/>
+          <Link to="/dashboard/create" className="dashboardSideNav-tabs-element item1">{this.state.navCreateLesson}</Link><br/>
+          <Link to="/dashboard/explore" className="dashboardSideNav-tabs-element item2">{this.state.navExplore}</Link><br/>
+          <Link to="/dashboard/manage" className="dashboardSideNav-tabs-element item3">{this.state.navMyLesson}</Link><br/>
+          <Link to="/dashboard/achievement" className="dashboardSideNav-tabs-element item4">{this.state.navAchievement}</Link><br/>
+          <Link to="/dashboard/profile" className="dashboardSideNav-tabs-element item5">{this.state.navMyAccount}</Link><br/>
           </div>
       </div>
     )
