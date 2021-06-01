@@ -87,8 +87,12 @@ class DashboardHomeComp extends React.Component {
     };
     this.handleChange = this.handleChange.bind(this);
 
-    fetchCreatorPost(url + "/lesson/topLesson", null)
+    let params = {
+    }
+
+    fetchCreatorPost(url + '/lesson/topLesson', params)
     .then((response) => {
+      console.log('fetchCreatorPost Response => ' + response)
       if (response === undefined) {
         return console.log("Erreur undefined");
       }
