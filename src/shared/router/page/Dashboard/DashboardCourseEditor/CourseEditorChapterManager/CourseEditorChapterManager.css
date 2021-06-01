@@ -1,0 +1,24 @@
+.courseEditorChapterManager-root {
+    width: 97.4%;
+    background: #BBDFF2;
+    height: 140px;
+    margin: 0 auto;
+    border-radius: 22px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.courseEditorChapterManager-chapterCard {
+    background: #43A4D9;
+    height: 115px;
+    width: 115px;
+    border-radius: 9px;
+}
+
+.courseEditorChapterManager-chapterCardActive {
+    background: #0F82BF;
+    height: 115px;
+    width: 115px;
+    border-radius: 9px;
+}

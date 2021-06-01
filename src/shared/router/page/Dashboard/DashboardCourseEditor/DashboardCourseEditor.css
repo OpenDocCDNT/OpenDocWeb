@@ -1,0 +1,73 @@
+.dashboardCourseEditor-root {
+    background: #7CC1E6;
+    flex: 1;
+}
+
+.dashboardCourseEditor-centerFix {
+    width: 100%;
+    margin: 10px auto 0;
+    border-radius: 27px;
+    max-width: 1300px;
+    background: white;
+    height: 100vh;
+}
+
+.dashboardCourseEditor-header {
+    width: 100%;
+    height: 210px;
+    display: flex;
+}
+
+.dashboardCourseEditor-editableHeaders {
+    flex: 1;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    height: 100%;
+
+}
+
+.dashboardCourseEditor-editableHeaderDisplayerHeight {
+    width: 100%;
+    height: 45px;
+}
+
+.dashboardCourseEditor-editableHeader {
+    display: inline-block;
+
+    width: 50%;
+    height: 100%;
+}
+
+.dashboardCourseEditor-editableHeaderDisplayer {
+    flex: 1;
+}
+
+.dashboardCourseEditor-coursePreview {
+
+    width: 40%;
+    height: 100%;
+}
+
+.dashboardCourseEditor-editableHeaderInput {
+    position: relative;
+    top: 15px;
+    left: 15px;
+    width: 85%;
+    background: #BBDFF2;
+    padding: 5px 5px 5px 10px;
+    font-size: 22px;
+    border-radius: 22px;
+    display: flex;
+    align-items: center;
+}
+
+.dashboardCourseEditor-editableHeaderInputEditPen {
+    position: absolute;
+    height: 16px;
+    right: 15px;
+}
+
+.dashboardCourseEditor-editableHeaderInputDesc {
+    height: 125px;
+}

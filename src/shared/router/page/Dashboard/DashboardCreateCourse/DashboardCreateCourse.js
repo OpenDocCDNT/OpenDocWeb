@@ -4,7 +4,9 @@ import {useHistory} from "react-router-dom";
 import ProgressBar from "../../../../ui/ProgressBar/ProgressBar";
 import DashboardCreateCourseQuestions from "./CourseCreateQuestions/CourseCreateQuestions";
 import CoursePreview from "../../../../ui/CoursePreview/CoursePreview";
-import ImageUpload from "../../../../ui/ImageUpload/ImageUpload";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import {fetchCreatorPost} from "../../../../utils/fetchCreator";
 
 function DashboardCreateCourse() {
   const history = useHistory();
@@ -16,12 +18,12 @@ class DashboardCreateCourseComp extends React.Component {
     super(props);
     this.handleInputChange = this.handleInputChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.handleSubmitStepTitle = this.handleSubmitStepTitle.bind(this);
-    this.handleSubmitStepDesc = this.handleSubmitStepDesc.bind(this);
     this.handleUpdateStepTitle = this.handleUpdateStepTitle.bind(this);
     this.handleUpdateStepDesc = this.handleUpdateStepDesc.bind(this);
     this.handleUpdateStepDiff = this.handleUpdateStepDiff.bind(this);
     this.handleUpdateStepImg = this.handleUpdateStepImg.bind(this);
+    this.checkTitle = this.checkTitle.bind(this)
+    this.checkDesc = this.checkDesc.bind(this)
     this.state = {
       statusTitle: "neutral",
       statusDesc: "neutral",
@@ -29,26 +31,11 @@ class DashboardCreateCourseComp extends React.Component {
       statusImg: "neutral",
       valueInputTitle: "Fabriquez votre fauteuil de jardin en palettes",
       valueInputDesc: "Tutoriel de construction d'un fauteuil de jardin avec des palettes en bois",
+      defaultValueInputTitle: "Fabriquez votre fauteuil de jardin en palettes",
+      defaultValueInputDesc: "Tutoriel de construction d'un fauteuil de jardin avec des palettes en bois",
       valueInputDiff: 1,
-      valueInputImg: null,
+      valueInputImg: "null",
       inputIsValid: false,
-    }
-  }
-
-  handleSubmitStepTitle(inputValue) {
-    if (this.state.inputIsValid) {
-      this.setState({
-        step: 2,
-        questionText: this.steps[1].questionText,
-        hintText: this.steps[1].hintText,
-        hintType: this.steps[1].hintType,
-        requestBody: {
-          img: undefined,
-          difficulty: undefined,
-          description: undefined,
-          title: inputValue
-        }
-      })
     }
   }
 
@@ -91,12 +78,6 @@ class DashboardCreateCourseComp extends React.Component {
     }
   }
 
-
-
-  handleSubmitStepDesc(inputValue) {
-    console.log("Yeet2")
-  }
-
   handleUpdateStepDesc(inputValue) {
 
     if (inputValue.length === 0) {
@@ -114,13 +95,9 @@ class DashboardCreateCourseComp extends React.Component {
         valueInputDesc: inputValue,
         statusDesc: "success"
       })
-    } else {
-
     }
 
   }
-
-
 
   handleUpdateStepDiff(inputValue) {
     this.setState({
@@ -128,26 +105,136 @@ class DashboardCreateCourseComp extends React.Component {
     })
   }
 
-
-
   handleUpdateStepImg(inputValue) {
-    console.log("Yeet4")
     this.setState({
       valueInputImg: window.URL.createObjectURL(inputValue)
     })
   }
 
-
   handleInputChange(newInputValue) {
-    this.steps[this.state.step-1].handleUpdateFunction(newInputValue);
     this.setState({
       newInputValue: newInputValue
     })
   }
 
-  handleSubmit(inputValue) {
-    this.steps[this.state.step-1].handleSubmitFunction(inputValue);
+  handleSubmit() {
+    if (!this.checkTitle(this.state.valueInputTitle)){
+      toast.error("Erreur : Le champ titre n'est pas valide", {
+        position: "bottom-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
+      return;
+    } else if (!this.checkDesc(this.state.valueInputDesc)) {
+      toast.error("Erreur : Le champ description n'est pas valide", {
+        position: "bottom-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
+      return;
+    } if (this.state.valueInputImg === "null") {
+      toast.error("Erreur : L'image ne semble pas valide", {
+        position: "bottom-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
+      return;
+    } else if (!this.state.valueInputDiff) {
+      toast.error("Erreur : Saisissez une difficultée", {
+        position: "bottom-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
+      return;
+    }
 
+      let objectToSubmit = {
+        token: localStorage.getItem("token"),
+        label: this.state.valueInputTitle,
+        description: this.state.valueInputDesc,
+        img: this.state.valueInputImg,
+        difficulty: this.state.valueInputDiff
+      }
+
+    fetchCreatorPost("http://127.0.0.1:8080/api/lesson/create", objectToSubmit)
+      .then(response => {
+        if (response.statusCode === 200) {
+          toast.success('Un franc succès ! Le cours a été créé', {
+            position: "bottom-right",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+          });
+
+          if (response.responseBody.lessonId) {
+            this.props.history.push("/dashboard/editCourse/" + response.responseBody.lessonId)
+          }
+
+        } else {
+          toast.error('Erreur, création refusée par le serveur : ' + response.responseBody.errors, {
+            position: "bottom-right",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+          });
+        }
+      }).catch(() => {
+      toast.error('Erreur 500, Try again later :)', {
+        position: "bottom-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
+      })
+  }
+
+  checkTitle(inputValue) {
+    if (inputValue === this.state.defaultValueInputTitle) {
+      return false
+    } else if (inputValue.length === 0) {
+      return false
+    } else if (inputValue.length < 8) {
+      return false
+    } else if (/[^a-zA-Z0-9_;-]/.test("Text-NoSpeChars")) {
+      return false
+    } else return inputValue.length <= 99;
+  }
+
+  checkDesc(inputValue) {
+    if (inputValue === this.state.defaultValueInputDesc) {
+      return false
+    } else if (inputValue.length === 0) {
+      return false
+    } else if (inputValue.length < 26) {
+      return false
+    } else if (inputValue.length < 130) {
+      return true
+    }
   }
 
   render() {
@@ -156,9 +243,6 @@ class DashboardCreateCourseComp extends React.Component {
         <div className="dashboardCreateCourse-centerFix">
           <div className="dashboardCreateCourse-mainTitle">Bienvenue sur la création de cours</div>
           <div className="dashboardCreateCourse-subTitle">C'est ici que tout commence, répondez à ce questionnaire pour débuter</div>
-          <div className="dashboardCreateCourse-progressBar">
-            <ProgressBar progressType="success" barSize={600} progressSize={100} text="Titre - 2"/>
-          </div>
           <div className="dashboardCreateCourse-questions">
             <DashboardCreateCourseQuestions data={
               {
@@ -175,8 +259,25 @@ class DashboardCreateCourseComp extends React.Component {
           </div>
           <div className="dashboardCreateCourse-preview">
             <CoursePreview courseImg={this.state.valueInputImg} courseTitle={this.state.valueInputTitle} courseText={this.state.valueInputDesc} courseDifficulty={this.state.valueInputDiff}/>
+            <div className="dashboardCreateCourse-submit">
+              <div onClick={() => {this.handleSubmit()}} className="dashboardCreateCourse-submitButton">
+                <div className="dashboardCreateCourse-submitButtonDeco"/>
+                <span className="dashboardCreateCourse-submitButtonText">C'est parti !</span>
+              </div>
+            </div>
           </div>
         </div>
+        <ToastContainer
+          position="bottom-right"
+          autoClose={5000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+        />
       </div>
     )
   }

@@ -19,7 +19,6 @@ class CoursePreviewComp extends React.Component {
   }
 
   static getDerivedStateFromProps(nextProps) {
-    console.log(nextProps.courseImg)
     return {
       courseText: nextProps.courseText,
       courseTitle: nextProps.courseTitle,
@@ -30,8 +29,7 @@ class CoursePreviewComp extends React.Component {
 
   render() {
     let displayImg = false;
-    console.log(this.state.courseImg)
-    if (this.state.courseImg !== null) {
+    if (this.state.courseImg !== "null") {
       displayImg = true
     }
     return (
