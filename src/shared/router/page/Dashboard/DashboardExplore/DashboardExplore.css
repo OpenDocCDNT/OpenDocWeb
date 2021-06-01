@@ -28,39 +28,3 @@
     align-items: center;
     justify-content: space-between;
 } 
-
-.dasboardExplore-filter{
-    background-color: white;
-    width: 23%;
-    max-width: 23%;
-    padding: 2%;
-    border-radius: 10% / 50%;
-    font-size: 10px;
-    color: gray;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-}
-
-.dasboardExplore-filter h2{
-    margin-top: 3%;
-}
-
-.dasboardExplore-filter input{
-    border-radius: 5px;
-    border: solid 1px #0F82BF;
-    font-size: 10px;
-    width: 70%;
-
-}
-
-.dashboardExplore-lessonGroup{
-    border-radius: 5px;
-    background-color: white;
-    max-width: 85%;
-    margin: auto;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-}
-
