@@ -3,6 +3,7 @@ import {Link, useParams, useHistory} from "react-router-dom";
 import {fetchCreatorPost} from "../../../utils/fetchCreator";
 import './Login.css'
 import logo from './../../../img/svg/logo.svg';
+import url from './../../../utils/commonParameters.js';
 
 function Login(){
   const {action} = useParams();
@@ -49,7 +50,7 @@ class SignUp extends React.Component {
       password: passValue
     }
 
-    fetchCreatorPost('http://127.0.0.1:8080/api/auth/register', params)
+    fetchCreatorPost(url + '/auth/register', params)
       .then(response => {
         if (response === undefined) {
           return errorSpan.innerHTML = "Erreur 500 !"
@@ -139,7 +140,7 @@ class SignIn extends React.Component {
       email: emailValue,
       password: passValue
     }
-    fetchCreatorPost('http://127.0.0.1:8080/api/auth/login', params)
+    fetchCreatorPost(url + '/auth/login', params)
       .then(response => {
         if (response === undefined) {
           return errorSpan.innerHTML=("Erreur 500 !");
