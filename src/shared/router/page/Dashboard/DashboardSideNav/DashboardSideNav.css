@@ -114,12 +114,6 @@
     grid-row-start: 6;
     grid-row-end: 6;
 }
-.item7{
-    
-    grid-column-start: 1;
-    grid-row-start: 7;
-    grid-row-end: 7;
-}
 
 @media only screen and (max-width: 600px) {
     .dashboardSideNav-widthModifier {

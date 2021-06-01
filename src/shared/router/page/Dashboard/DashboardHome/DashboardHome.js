@@ -3,6 +3,7 @@ import React from "react";
 import { useHistory } from "react-router-dom";
 import url from "../../../../utils/commonParameters.js";
 import { fetchCreatorPost } from "../../../../utils/fetchCreator";
+import {Link} from "react-router-dom";
 
 let lessons = [];
 
@@ -64,6 +65,7 @@ class DashboardHomeComp extends React.Component {
     this.setState({ checked });
   }
 
+
   componentDidMount(){
     this.getTopLessons()
   }
@@ -73,7 +75,7 @@ class DashboardHomeComp extends React.Component {
       <li key={lesson.id} className={"card" + i++ + " cardContent"}>
         <img className="cardHeader" src="" alt="cardHeader" />
         <h3 className="cardTitle">{lesson.label}</h3>
-        <p className="cardReputation">{lesson.reputation}</p>
+        <p className="cardReputation" id={lesson.reputation}>{i}</p>
       </li>
     ));
     
@@ -94,7 +96,9 @@ class DashboardHomeComp extends React.Component {
           <div className="squareContent gridCards">
             <ul>{listLessons}</ul>
           </div>
-          <button className="viewAll">View All 1</button>
+          <button className="viewAll" >          
+            <Link to="/dashboard/explore" className="">View All</Link>
+          </button>
         </div>
 
         <div className="dashboardHome-square sq2">
