@@ -27,22 +27,37 @@ class HintBarComp extends React.Component {
     }
   }
 
-  backgroundSetter() {
+  backgroundSetter(hintType) {
     const hintBarRoot = this.hintBarRoot.current;
-    switch (this.state.hintType) {
+    switch (hintType) {
       case "error":
+        hintBarRoot.classList.remove(this.hintBarBackgroundClass.important)
+        hintBarRoot.classList.remove(this.hintBarBackgroundClass.neutral)
+        hintBarRoot.classList.remove(this.hintBarBackgroundClass.success)
         hintBarRoot.classList.add(this.hintBarBackgroundClass.error)
         break;
       case "important":
+        hintBarRoot.classList.remove(this.hintBarBackgroundClass.error)
+        hintBarRoot.classList.remove(this.hintBarBackgroundClass.neutral)
+        hintBarRoot.classList.remove(this.hintBarBackgroundClass.success)
         hintBarRoot.classList.add(this.hintBarBackgroundClass.important)
         break;
       case "neutral":
+        hintBarRoot.classList.remove(this.hintBarBackgroundClass.error)
+        hintBarRoot.classList.remove(this.hintBarBackgroundClass.important)
+        hintBarRoot.classList.remove(this.hintBarBackgroundClass.success)
         hintBarRoot.classList.add(this.hintBarBackgroundClass.neutral)
         break;
       case "success":
+        hintBarRoot.classList.remove(this.hintBarBackgroundClass.error)
+        hintBarRoot.classList.remove(this.hintBarBackgroundClass.important)
+        hintBarRoot.classList.remove(this.hintBarBackgroundClass.neutral)
         hintBarRoot.classList.add(this.hintBarBackgroundClass.success)
         break;
       default:
+        hintBarRoot.classList.remove(this.hintBarBackgroundClass.error)
+        hintBarRoot.classList.remove(this.hintBarBackgroundClass.important)
+        hintBarRoot.classList.remove(this.hintBarBackgroundClass.success)
         hintBarRoot.classList.add(this.hintBarBackgroundClass.neutral)
         break;
     }
@@ -57,7 +72,7 @@ class HintBarComp extends React.Component {
 
   componentDidUpdate(prevProps, prevState, snapshot) {
     this.widthDefiner();
-    this.backgroundSetter();
+    this.backgroundSetter(this.props.hintType);
   }
 
   widthDefiner() {
@@ -69,7 +84,8 @@ class HintBarComp extends React.Component {
 
   componentDidMount() {
     this.widthDefiner();
-    this.backgroundSetter();
+    this.backgroundSetter(this.props.hintType);
+
   }
 
   render() {
