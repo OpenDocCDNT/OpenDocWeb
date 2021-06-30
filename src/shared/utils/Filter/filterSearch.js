@@ -30,11 +30,7 @@ function Search() {
                 if(response.statusCode === 418) {
                     return console.log('ok');
                 }
-                // this.setState({lessonSearch: response.responseBody.lessons})
-                // const lessonSearch =  response.responseBody.lessons;
-                // console.log(response)
                 const datas = response.responseBody.lessons;
-                console.log('Test', datas)
                 return datas;        
             })
             .catch(() => {
@@ -58,7 +54,7 @@ function Search() {
 
         <div className="search_results">
             <div className="search_result"> 
-           {/* { console.log(datas)}
+           { console.log(datas)}
             {datas
                 .filter((val) => {
                      return val.label.toLowerCase().includes(searchTerm.toLocaleLowerCase());
@@ -69,7 +65,7 @@ function Search() {
                              {val.label}
                         </div>
                      );   
-            })} */}
+            })}
             </div>
         </div>
         </>
