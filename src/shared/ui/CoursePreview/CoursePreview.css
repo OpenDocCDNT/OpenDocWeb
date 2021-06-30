@@ -10,10 +10,18 @@
     align-items: center;
 }
 
-.coursePreview-img {
+.coursePreview-imgDiv {
     width: 85px;
     height: 85px;
     background: #2F3640;
+    margin-left: 7.5px;
+    margin-right: 10px;
+    border-radius: 6px;
+}
+
+.coursePreview-imgObject {
+    width: 85px;
+    height: 85px;
     margin-left: 7.5px;
     margin-right: 10px;
     border-radius: 6px;

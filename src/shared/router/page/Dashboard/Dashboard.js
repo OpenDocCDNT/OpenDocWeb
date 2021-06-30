@@ -10,9 +10,11 @@ import DashboardMyLearnings from "./DashboardMyLearnings/DashboardMyLearnings";
 import DashboardProfile from "./DashboardProfile/DashboardProfile";
 import DashboardHome from "./DashboardHome/DashboardHome";
 import {fetchCreatorPost} from "../../../utils/fetchCreator";
+import DashboardCourseEditor from "./DashboardCourseEditor/DashboardCourseEditor";
+import {ToastContainer} from "react-toastify";
 
 function Dashboard() {
-  const { action } = useParams();
+  const { action, courseId } = useParams();
   const history = useHistory();
   let dashboardPage = <DashboardHome/>
   if (action === "course") {
@@ -27,6 +29,8 @@ function Dashboard() {
     dashboardPage = <DashboardMyLearnings/>
   } else if (action === "profile") {
     dashboardPage = <DashboardProfile/>
+  } else if (action === "editCourse") {
+    dashboardPage = <DashboardCourseEditor courseId={courseId}/>
   }
   return <DashboardComponent history={history} dashboardPage={dashboardPage}/>
 }
@@ -80,6 +84,17 @@ class DashboardComponent extends React.Component {
       <div className="dashboardPage-root">
         <DashboardSideNav/>
         {this.props.dashboardPage}
+        <ToastContainer
+          position="bottom-right"
+          autoClose={5000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+        />
       </div>
     )
   }
