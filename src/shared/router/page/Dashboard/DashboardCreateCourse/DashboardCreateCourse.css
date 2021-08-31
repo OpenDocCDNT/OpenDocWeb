@@ -1,6 +1,15 @@
 .dashboardCreateCourse-root {
-    flex: 1;
-    background: #c782c7;
+    grid-column-start: 2;
+    grid-column-end: 5;
+    grid-row-start: 1;
+    grid-row-end: 5;
+
+    background: #399bd0;   
+    display: grid;
+    width: 100%;
+    grid-template-columns: 25% 25% 25% 25%;
+    grid-template-rows: 20% 80%;
+    grid-template-areas: "header header header header" "main main main main";
 }
 
 .dashboardCreateCourse-centerFix {

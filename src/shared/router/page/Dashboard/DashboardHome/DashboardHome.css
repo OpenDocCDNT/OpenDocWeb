@@ -53,6 +53,12 @@
   }
 
 .dashboardHome-root {
+    grid-column-start: 2;
+    grid-column-end: 5;
+    grid-row-start: 1;
+    grid-row-end: 5;
+
+
     background: #399bd0;   
     display: grid;
     width: 100%;
@@ -74,7 +80,7 @@
     margin-top: 3%;
     padding-top: 3%;
     padding-bottom: 3%;
-    padding-left: 1vw;
+    
 }
 
 .dashboardHome-square{

@@ -22,12 +22,12 @@ class DashboardSideNavComp extends React.Component {
   constructor(props) {
     super(props);
     this.handleRetractMenu = this.handleRetractMenu.bind(this);
-    this.defaultFullNavWidth = 25;
-    this.defaultRetractedNavWidth = 5;
     this.defaultLogo = logo;
     this.defaultRetractedLogo = logoRetracted;
     this.defaultArrow = "◄";
     this.defaultRetractedArrow = "►";
+    this.gridDefaultTemplate = "25% 25% 25% 25%";
+    this.gridRetractedDefaultTemplate = "7% 31% 31% 31%";
 
   
     this.defaultCreateLessonTxt = "Créer un cours";
@@ -44,9 +44,9 @@ class DashboardSideNavComp extends React.Component {
     this.defaultRetractedMyAccountTxt = <img className="imgNav"  src={logoMyAccount} alt="defaultRetractedMyAccountTxt"/>;
     
     this.state = {
-      navWidth: this.defaultFullNavWidth,
       navLogo: this.defaultLogo,
       navArrow: this.defaultArrow,
+      gridWidth: this.gridDefaultTemplate,
 
       navMyAccount: this.defaultMyAccountTxt,
       navAchievement: this.defaultAchievementTxt,
@@ -59,7 +59,10 @@ class DashboardSideNavComp extends React.Component {
 
   componentDidUpdate(prevProps, prevState, snapshot) {
     const dashboardSideNav = document.getElementById("dashboardSideNavId");
+    const dashboardGridNav = document.getElementById("dashboardPage-root");
     dashboardSideNav.style.width = this.state.navWidth + "vw";
+    dashboardGridNav.style.gridTemplateColumns = this.state.gridWidth + "";
+    //grid-template-columns: 5% 30% 30% 30%;
   }
 
   componentDidMount() {
@@ -68,9 +71,10 @@ class DashboardSideNavComp extends React.Component {
   }
 
   handleRetractMenu() {
+
     if (this.state.isNavRetracted) {
+      
       this.setState({
-        navWidth:this.defaultFullNavWidth,
         navLogo: this.defaultLogo,
         navMyAccount: this.defaultMyAccountTxt,
         navAchievement: this.defaultAchievementTxt,
@@ -78,11 +82,11 @@ class DashboardSideNavComp extends React.Component {
         navExplore: this.defaultExploreTxt,
         navMyLesson: this.defaultMyLessonTxt,
         navArrow: this.defaultArrow,
+        gridWidth: this.gridDefaultTemplate,
         isNavRetracted: false
       })
     } else {
       this.setState({
-        navWidth: this.defaultRetractedNavWidth,
         navLogo: this.defaultRetractedLogo,
         navListLesson: this.defaultRetractedLessonTxt,
         navMyAccount: this.defaultRetractedMyAccountTxt,
@@ -91,10 +95,12 @@ class DashboardSideNavComp extends React.Component {
         navExplore: this.defaultRetractedExploreTxt,
         navMyLesson: this.defaultRetractedMyLessonTxt,
         navArrow: this.defaultRetractedArrow,
+        gridWidth: this.gridRetractedDefaultTemplate,
         isNavRetracted: true
       })
     }
   }
+
 
   /** 
    * 

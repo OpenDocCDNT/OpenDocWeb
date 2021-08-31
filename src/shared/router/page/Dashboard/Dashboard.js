@@ -81,7 +81,7 @@ class DashboardComponent extends React.Component {
   render() {
 
     return (
-      <div className="dashboardPage-root">
+      <div id="dashboardPage-root" className="dashboardPage-root">
         <DashboardSideNav/>
         {this.props.dashboardPage}
         <ToastContainer

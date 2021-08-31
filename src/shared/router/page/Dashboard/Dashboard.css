@@ -1,4 +1,9 @@
 .dashboardPage-root {
-    width: 100%;
-    display: flex;
+    display: grid;
+    
+    grid-template-rows: 25% 25% 25% 25%;
+    grid-template-columns: 25% 25% 25% 25%;
+    
+    background: #399bd0;
+    
 }
