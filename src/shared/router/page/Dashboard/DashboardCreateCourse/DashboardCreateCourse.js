@@ -1,7 +1,6 @@
 import './DashboardCreateCourse.css';
 import React from "react";
 import {useHistory} from "react-router-dom";
-import ProgressBar from "../../../../ui/ProgressBar/ProgressBar";
 import DashboardCreateCourseQuestions from "./CourseCreateQuestions/CourseCreateQuestions";
 import CoursePreview from "../../../../ui/CoursePreview/CoursePreview";
 import { ToastContainer, toast } from 'react-toastify';

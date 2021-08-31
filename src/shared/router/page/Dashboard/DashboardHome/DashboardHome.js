@@ -48,9 +48,6 @@ class DashboardHomeComp extends React.Component {
       })
       console.log("lessons => ");
       console.log(lessons);
-      let lessonsId = lessons.map((lesson, i) => (
-        console.log(JSON.stringify(lesson))
-      ));
       //lessons.sort((a, b) => b.reputation-a.reputation);
       return lessons;
       

@@ -6,17 +6,8 @@ import { fetchCreatorPost } from "../fetchCreator";
 
 function Search() {
 
-    const [datas, setDatas] = useState([]);
+    const [datas] = useState([]);
     const [searchTerm, setSearchterm] = useState("");
-
-    // class lessonSearch extends React.Component {
-    //     constructor(props) {
-    //         super(props);
-    //         this.state = {
-    //             lessonSearch: [],
-    //         }
-    //     }
-    // }
 
     useEffect(() => {
         fetchCreatorPost('http://127.0.0.1:8080/api/lesson/getAll')

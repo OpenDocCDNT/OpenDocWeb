@@ -8,9 +8,6 @@ function DashboardCourse() {
 }
 
 class DashboardCourseComp extends React.Component {
-  constructor(props) {
-    super(props);
-  }
 
   render() {
     return (
