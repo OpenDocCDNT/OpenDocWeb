@@ -1,103 +1,115 @@
 .dashboardCreateCourse-root {
-    grid-column-start: 2;
-    grid-column-end: 5;
-    grid-row-start: 1;
-    grid-row-end: 5;
+  grid-column-start: 2;
+  grid-column-end: 5;
+  grid-row-start: 1;
+  grid-row-end: 5;
 
-    background: #399bd0;   
-    display: grid;
-    width: 100%;
-    grid-template-columns: 25% 25% 25% 25%;
-    grid-template-rows: 20% 80%;
-    grid-template-areas: "header header header header" "main main main main";
-}
+  background: azure;
+  display: grid;
+  width: 100%;
 
-.dashboardCreateCourse-centerFix {
-    max-width: 1200px;
-    width: 100%;
-    height: 100vh;
-    background: azure;
-    margin: 0 auto;
+  grid-template-columns: 25% 25% 25% 25%;
+  grid-template-rows: 10% 10% 40% 40%;
 }
 
 .dashboardCreateCourse-mainTitle {
-    font-size: 25px;
-    text-align: center;
-    padding-top: 20px;
+  grid-column-start: 1;
+  grid-column-end: 5;
+  grid-row-start: 1;
+  grid-row-end: 2;
+  font-family: "Ubuntu", sans-serif;
+  font-size: 3.5vw;
+  background-color: azure;
+  color: rgb(93, 93, 93);
+
+  font-size: 25px;
+  text-align: center;
+  padding-top: 20px;
 }
 
 .dashboardCreateCourse-subTitle {
-    font-size: 20px;
-    text-align: center;
-    padding-top: 15px;
-    font-weight: 300;
+  grid-column-start: 1;
+  grid-column-end: 5;
+  grid-row-start: 2;
+  grid-row-end: 3;
+  color: rgb(93, 93, 93);
+
+  font-size: 20px;
+  text-align: center;
+  padding-top: 15px;
+  font-weight: 300;
 }
 
 .dashboardCreateCourse-progressBar {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    padding-top: 20px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding-top: 20px;
 }
-
+/**
 .dashboardCreateCourse-questions {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    padding-top: 20px;
-}
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding-top: 20px;
+}**/
 
 .dashboardCreateCourse-preview {
-    width: 70%;
-    margin: 0 auto;
-    display: flex;
-    justify-content: space-around;
-    margin-top: 30px;
+  grid-column-start: 1;
+  grid-column-end: 5;
+  grid-row-start: 4;
+  grid-row-end: 5;
+  width: 70%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-around;
+  margin-top: 30px;
 }
 
 .dashboardCreateCourse-submit {
-    width: 40%;
-    height: 100px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  width: 40%;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .dashboardCreateCourse-submitButton {
-    position: relative;
-    background: #2ecc71;
-    width: 75%;
-    height: 60%;
-    border-radius: 50px;
-    display: flex;
-    cursor: pointer;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-    transition: background .7s;
-    color: whitesmoke;
-    font-weight: 900;
-    font-size: 24px;
+  position: relative;
+  background: #2ecc71;
+  width: 75%;
+  height: 60%;
+  border-radius: 50px;
+  display: flex;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  transition: background 0.7s;
+  color: whitesmoke;
+  font-weight: 900;
+  font-size: 24px;
 }
 
 .dashboardCreateCourse-submitButtonDeco {
-    position: absolute;
-    border-radius: 50px;
-    top: 0;
-    left: 0;
-    overflow: hidden;
-    height: 100%;
-    width: 0;
-    opacity: 0.7;
-    background: #27ae60;
-    transition: width ease-in-out .4s;
-    z-index: 9;
+  position: absolute;
+  border-radius: 50px;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  height: 100%;
+  width: 0;
+  opacity: 0.7;
+  background: #27ae60;
+  transition: width ease-in-out 0.4s;
+  z-index: 9;
 }
 
-.dashboardCreateCourse-submitButton:hover .dashboardCreateCourse-submitButtonDeco {
-    width: 100%;
+.dashboardCreateCourse-submitButton:hover
+  .dashboardCreateCourse-submitButtonDeco {
+  width: 100%;
 }
 
 .dashboardCreateCourse-submitButtonText {
-    z-index: 10;
+  z-index: 10;
 }
