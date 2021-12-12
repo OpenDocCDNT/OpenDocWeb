@@ -28,12 +28,11 @@ class DashboardSideNavComp extends React.Component {
     this.defaultRetractedArrow = "►";
     this.gridDefaultTemplate = "25% 25% 25% 25%";
     this.gridRetractedDefaultTemplate = "7% 31% 31% 31%";
-
   
     this.defaultCreateLessonTxt = "Créer un cours";
-    this.defaultExploreTxt = "Explore ?";
-    this.defaultMyLessonTxt = "Gérer ses modules (gérer ses cours)";
-    this.defaultAchievementTxt = "Achievement? (Ma progression ?)";
+    this.defaultExploreTxt = "Explore";
+    this.defaultMyLessonTxt = "Gérer ses cours";
+    this.defaultAchievementTxt = "Ma progression";
     this.defaultMyAccountTxt = "Mon compte";
     
     this.defaultRetractedLessonTxt = <img className="imgNav" src={logoLesson} alt="defaultRetractedLessonTxt"/>;

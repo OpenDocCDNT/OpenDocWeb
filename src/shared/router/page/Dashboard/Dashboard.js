@@ -32,7 +32,8 @@ function Dashboard() {
   } else if (action === "editCourse") {
     dashboardPage = <DashboardCourseEditor courseId={courseId}/>
   }
-  return <DashboardComponent history={history} dashboardPage={dashboardPage}/>
+  return <DashboardComponent history={history} 
+  dashboardPage={dashboardPage}/>
 }
 
 class DashboardComponent extends React.Component {
