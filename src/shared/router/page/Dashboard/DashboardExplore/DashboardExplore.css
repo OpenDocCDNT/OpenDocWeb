@@ -1,6 +1,8 @@
 .dashboardExplore-root {
     flex: 1;
     background: #0F82BF;
+    width: 1024px;
+    height: 1024px;
 }
 
 .dashboardExplore-title{
